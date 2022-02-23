@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 
 project(SimpleAppWithTests VERSION 0.1.0)
 
-set(SIMPLEAPPWITHTESTS_SOURCES src/calc.cpp src/simple_app.cpp )
+set(SIMPLEAPPWITHTESTS_SOURCES src/calc.cpp src/vector.cpp src/simple_app.cpp )
 add_executable(SimpleAppWithTests ${SIMPLEAPPWITHTESTS_SOURCES})
 
 target_include_directories(SimpleAppWithTests PRIVATE include)
