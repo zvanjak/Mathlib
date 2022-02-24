@@ -17,6 +17,7 @@
 
 Matrix::Matrix()
 {
+	m_pdElem = nullptr;
 }
 
 Matrix::Matrix( int RowNum, int ColNum )
