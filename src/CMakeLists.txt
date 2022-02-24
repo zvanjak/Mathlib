@@ -12,8 +12,8 @@ add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
 file(GLOB MATHLIB_SOURCES src/calc.cpp src/vector.cpp)
-file(GLOB TESTS tests/calc_tests.cpp)
+file(GLOB MATHLIB_TESTS tests/vector_tests.cpp)
 
-add_executable(CalcTests "test_runner.cpp" ${TESTS} ${MATHLIB_SOURCES})
-target_link_libraries(CalcTests Catch)
-target_include_directories(CalcTests PRIVATE include)
+add_executable(Mathlib_Tests "mathlib_test_runner.cpp" ${MATHLIB_SOURCES} ${MATHLIB_TESTS} )
+target_link_libraries(Mathlib_Tests Catch)
+target_include_directories(Mathlib_Tests PRIVATE include)

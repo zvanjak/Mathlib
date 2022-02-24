@@ -5,9 +5,7 @@
 #include "calc.h"
 #include "vector.h"
 
-TEST_CASE("Test_Calc", "[simple]") {
-    Calculator c;
-
+TEST_CASE("Test_Vector_mul_double", "[simple]") {
     Vector a(2);
 
     a[0] = 1.0;
@@ -17,5 +15,6 @@ TEST_CASE("Test_Calc", "[simple]") {
 
     b = 2 * a;
 
-	REQUIRE(4.0 ==  c.Add(2,2));
+	REQUIRE(2.0 ==  b[0]);
+	REQUIRE(2.0 ==  b[1]);
 }

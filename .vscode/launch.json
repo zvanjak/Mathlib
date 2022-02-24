@@ -19,7 +19,7 @@
             "name": "Mathlib_Tests - (Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Debug/CalcTests.exe",
+            "program": "${workspaceFolder}/build/Debug/Mathlib_Tests.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
