@@ -5,7 +5,6 @@
 #include	<ctype.h>
 #include	<stdlib.h>
 #include	<assert.h>
-#include	<conio.h>
 #include	<time.h>
 
 #include "vector.h"
