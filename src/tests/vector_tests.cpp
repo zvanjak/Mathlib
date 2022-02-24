@@ -2,7 +2,6 @@
 
 #include "../catch/catch.hpp"
 
-#include "calc.h"
 #include "vector.h"
 
 TEST_CASE("Test_Vector_mul_double", "[simple]") {
