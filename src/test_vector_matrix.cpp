@@ -67,6 +67,17 @@ void Test_Vector_Matrix()
 
     std::cout << "Resulting vector: " << vecC << std::endl;
 
+    std::cout << "\nINVERTING MATRIX:\n";
+    MML::Matrix mat3copy(mat1), matInverted(mat1.RowNum(), mat1.ColNum());
+
+    MML::MatrixOp::InvertMatrix(mat3copy, matInverted);
+
+    std::cout << "Inverted matrix:\n";
+    matInverted.Print();
+
+    MML::Matrix mul = mat1 * matInverted;
+
+
 
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;
 
