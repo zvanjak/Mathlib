@@ -1,3 +1,5 @@
+#include <cmath>
+
 #define	FUNC_INT(X) ((*func)(x))
 
 template < class T > T	trapzd( T (* func) (T), T a, T b, int n )
@@ -56,7 +58,7 @@ template < class T > T	qtrap(T (* func) (T), T a, T b )
 		olds = s;
 	}
 
-	printf("To many steps in NIntegrate !!!");
+//printf("To many steps in NIntegrate !!!");
 
 	return T();
 

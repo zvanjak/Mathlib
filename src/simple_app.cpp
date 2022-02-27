@@ -6,9 +6,16 @@
 #include "Integration.h"
 
 void Test_Vector_Matrix();
+void Test_Integration();
+void Test_Polynom();
 
-int main(int, char**) {
+int main(int, char**) 
+{
     Test_Vector_Matrix();
+
+    Test_Integration();
+
+    Test_Polynom();
     
 
 /* TODO
