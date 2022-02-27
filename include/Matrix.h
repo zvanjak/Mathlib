@@ -7,6 +7,7 @@ namespace MML
     public:
         Matrix() : _rows(0), _cols(0)
         {
+            std::cout << "Matrix::default constructor \n";
             _ptrData = nullptr;
         }
         Matrix(int rows, int cols) : _rows(rows), _cols(cols)
@@ -106,6 +107,8 @@ namespace MML
 
         Matrix  operator+(const Matrix &other)
         {
+            std::cout << "Matrix::operator + START \n";
+
             Matrix temp(_rows, _cols);
             if (_rows != other._rows || _cols != other._cols)
             {
@@ -120,7 +123,7 @@ namespace MML
                     for (int j = 0; j < _cols; j++)
                         temp._ptrData[i][j] += other._ptrData[i][j] + _ptrData[i][j];
             }
-            std::cout << "Matrix::operator + \n";
+            std::cout << "Matrix::operator + END \n";
             return temp;
         }
 
