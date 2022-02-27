@@ -99,6 +99,11 @@ namespace MML
             return *this;
         }
 
+        double*	operator[]( int i )
+        {
+            return _ptrData[i];
+        }
+
         Matrix  operator+(const Matrix &other)
         {
             Matrix temp(_rows, _cols);
