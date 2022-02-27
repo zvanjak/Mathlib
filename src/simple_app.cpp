@@ -22,9 +22,9 @@ int main(int, char**) {
     m1[1][0] = 1.5;
     m1[1][1] = 3.0;
 
-    // m2.MakeUnitMatrix();
+    m2.MakeUnitMatrix();
 
-    // m3 = m1 * m2;
+    m3 = m1 + m2;
 
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;
 

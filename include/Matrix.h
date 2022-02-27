@@ -124,6 +124,19 @@ namespace MML
             return temp;
         }
 
+        void    MakeUnitMatrix( void )
+        {
+            if( _rows == _cols )
+            {
+                for( int i=0; i<_rows; i++ )
+                    for( int j=0; j<_cols; j++ )
+                        if( i == j )
+                            _ptrData[i][j] = 1;
+                        else
+                            _ptrData[i][j] = 0;
+            }
+        }
+
 
     private:
         int _rows;

@@ -1,21 +1,4 @@
-#if !defined  __MINIMAL_MATH_LIB_H
-#define __MINIMAL_MATH_LIB_H
+#include "MMLBase.h"
 
-#include <cmath>
-
-namespace MML
-{
-	
-}
-
-class	MathLibException
-{
-public:
-	MathLibException();
-	MathLibException( int nType );
-	~MathLibException();
-
-	int		m_nType;
-};
-
-#endif
+#include "VectorN.h"
+#include "Matrix.h"
