@@ -1,5 +1,3 @@
-#include "MLibBasic.h"
-
 #if !defined	__VECTOR_H
 #define __VECTOR_H
 
@@ -62,51 +60,5 @@ public:
 	friend void	Print( Vector &b );
 };
 
-class	ComplexVector
-{
-private:
-	int				m_nDim;
-	Complex		*m_pdCoef;
-	char			strName[10];
-
-public:
-	ComplexVector();
-	ComplexVector( int nDim );
- 	ComplexVector( ComplexVector &Copy );
-	ComplexVector( Vector &vecReal, Vector &vecImag );
-	~ComplexVector();
-
-	void	InitValues( Complex *aValues );
-	void	InitValues( Complex dFirst, ... );
-	void  MakeRandomElements( double dMax=1, double dMin=-1 );
-	void	Reinitialize( int nNewDim );
-
-	int				GetDim( void );
-	Complex		Get( unsigned int i );
-	Complex		*GetPtr( void );
-
-	ComplexVector	operator+(  ComplexVector &a ) ;
-	ComplexVector	operator-(  ComplexVector &a ) ;
-	ComplexVector	operator*(  double b ) ;
-
-	ComplexVector	operator+=(  ComplexVector &a );
-	ComplexVector	operator-=(  ComplexVector &a );
-	ComplexVector	operator*=(  double b );
-
-	ComplexVector& operator=(  ComplexVector &b );
-	Complex&	operator[]( int i );
-
-	friend ComplexVector	operator+(  double a,  ComplexVector &b );
-	friend ComplexVector	operator-(  double a,  ComplexVector &b );
-	friend ComplexVector	operator*(  double a,  ComplexVector &b );
-
-	friend ComplexVector	operator+(  ComplexVector &a,  double b );
-	friend ComplexVector	operator-(  ComplexVector &a,  double b );
-	friend ComplexVector	operator*(  ComplexVector &a,  double b );
-
-	friend double	Norm(  ComplexVector &a );
-
-	friend void	Print( ComplexVector &b );
-};
 
 #endif

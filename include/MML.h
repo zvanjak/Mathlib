@@ -3,6 +3,10 @@
 
 #include <cmath>
 
+namespace MML
+{
+	
+}
 
 class	MathLibException
 {
