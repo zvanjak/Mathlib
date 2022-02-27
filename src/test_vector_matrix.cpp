@@ -77,6 +77,8 @@ void Test_Vector_Matrix()
 
     MML::Matrix mul = mat1 * matInverted;
 
+    mul.Print();
+
 
 
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;

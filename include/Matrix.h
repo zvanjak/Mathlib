@@ -149,6 +149,27 @@ namespace MML
             return temp;
         }
 
+        Matrix  operator*( const Matrix &b ) const
+        {
+            Matrix	ret(RowNum(), b.ColNum());
+
+            if( ColNum() == b.RowNum() )
+            {
+                for( int i=0; i<ret.RowNum(); i++ )
+                    for( int j=0; j<ret.ColNum(); j++ )
+                    {
+                        ret._ptrData[i][j] = 0;
+                        for(int k=0; k<ColNum(); k++ )
+                            ret._ptrData[i][j] += _ptrData[i][k] * b._ptrData[k][j];
+                    }
+            }
+            else
+            {				// krive dimenzije matrice
+            }
+
+            return	ret;
+        }        
+
         VectorN	operator*( VectorN &b )
         {
             int			i, j;
