@@ -26,6 +26,11 @@ int main(int, char**) {
 
     m3 = m1 + m2;
 
+    m1.Print();
+    m2.Print();
+    m3.Print();
+
+    
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;
 
     // Vector eigenValues(2);

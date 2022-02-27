@@ -19,7 +19,7 @@ namespace MML
                     _ptrData[i][j] = 0;
                 }
             }
-            std::cout << "constructor \n";
+            std::cout << "Matrix::constructor \n";
         }
         Matrix(const Matrix& m) : _rows(m._rows), _cols(m._cols)
         {
@@ -31,7 +31,7 @@ namespace MML
                     _ptrData[i][j] = m._ptrData[i][j];
                 }
             }
-            std::cout << "copy constructor \n";
+            std::cout << "Matrix::copy constructor \n";
         }
         Matrix(Matrix&& m)
         {
@@ -44,7 +44,7 @@ namespace MML
             m._cols = 0;
             m._ptrData = nullptr;
 
-            std::cout << "move constructor \n";
+            std::cout << "Matrix::move constructor \n";
         }
         ~Matrix()
         {
@@ -54,7 +54,7 @@ namespace MML
             }
             if (_ptrData != nullptr)
                 delete[] _ptrData;
-            std::cout << "destructor \n";
+            std::cout << "Matrix::destructor \n";
         }
 
         Matrix& operator=(const Matrix& m)
@@ -81,7 +81,7 @@ namespace MML
                     _ptrData[i][j] = m._ptrData[i][j];
                 }
             }
-            std::cout << "operator = \n";
+            std::cout << "Matrix::operator = \n";
             return *this;
         }
         Matrix& operator=(Matrix&& m)
@@ -95,7 +95,7 @@ namespace MML
             std::swap(_rows, m._rows);
             std::swap(_cols, m._cols);
 
-            std::cout << "move operator = \n";
+            std::cout << "Matrix::move operator = \n";
             return *this;
         }
 
@@ -120,7 +120,7 @@ namespace MML
                     for (int j = 0; j < _cols; j++)
                         temp._ptrData[i][j] += other._ptrData[i][j] + _ptrData[i][j];
             }
-            std::cout << "operator + \n";
+            std::cout << "Matrix::operator + \n";
             return temp;
         }
 
@@ -134,6 +134,20 @@ namespace MML
                             _ptrData[i][j] = 1;
                         else
                             _ptrData[i][j] = 0;
+            }
+        }
+
+        void    Print( void )
+        {
+            std::cout << "Rows: " << _rows << "  Cols: " << _cols << std::endl;
+
+            for( int i=0; i<_rows; i++ )
+            {
+                for( int j=0; j<_cols; j++ )
+                {
+                    std::cout << _ptrData[i][j] << ", ";
+                }
+                std::cout << std::endl;
             }
         }
 
