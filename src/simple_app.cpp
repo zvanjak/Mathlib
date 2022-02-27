@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "VectorN.h"
+#include "Matrix.h"
 
 int main(int, char**) {
     MML::VectorN a(2);
@@ -14,7 +15,7 @@ int main(int, char**) {
 
     std::cout << "Vector = (" << b[0] << ", " << b[1] << ")" << std::endl;
 
-    // Matrix m1(2,2), m2(2,2), m3;
+    MML::Matrix m1(2,2), m2(2,2), m3;
 
     // m1[0][0] = 1.0;
     // m1[0][1] = -1.0;

@@ -1,58 +1,60 @@
+#include <iostream>
+
 namespace MML
 {
     class Matrix
     {
     public:
-        Matrix() : rows_(0), cols_(0)
+        Matrix() : _rows(0), _cols(0)
         {
-            p = nullptr;
+            _ptrData = nullptr;
         }
-        Matrix(int rows, int cols) : rows_(rows), cols_(cols)
+        Matrix(int rows, int cols) : _rows(rows), _cols(cols)
         {
-            p = new double *[rows_];
-            for (int i = 0; i < rows_; ++i)
-                p[i] = new double[cols_];
-            for (int i = 0; i < rows_; ++i) {
-                for (int j = 0; j < cols_; ++j) {
-                    p[i][j] = 0;
+            _ptrData = new double *[_rows];
+            for (int i = 0; i < _rows; ++i)
+                _ptrData[i] = new double[_cols];
+            for (int i = 0; i < _rows; ++i) {
+                for (int j = 0; j < _cols; ++j) {
+                    _ptrData[i][j] = 0;
                 }
             }
-            cout << "constructor \n";
+            std::cout << "constructor \n";
         }
-        Matrix(const Matrix& copy) : rows_(m.rows_), cols_(m.cols_)
+        Matrix(const Matrix& m) : _rows(m._rows), _cols(m._cols)
         {
-            p = new double *[rows_];
-            for (int i = 0; i < rows_; ++i)
-                p[i] = new double[cols_];
-            for (int i = 0; i < rows_; ++i) {
-                for (int j = 0; j < cols_; ++j) {
-                    p[i][j] = m.p[i][j];
+            _ptrData = new double *[_rows];
+            for (int i = 0; i < _rows; ++i)
+                _ptrData[i] = new double[_cols];
+            for (int i = 0; i < _rows; ++i) {
+                for (int j = 0; j < _cols; ++j) {
+                    _ptrData[i][j] = m._ptrData[i][j];
                 }
             }
-            cout << "copy constructor \n";
+            std::cout << "copy constructor \n";
         }
         Matrix(Matrix&& m)
         {
-            p = m.p;
+            _ptrData = m._ptrData;
 
-            rows_ = m.rows_;
-            cols_ = m.cols_;
+            _rows = m._rows;
+            _cols = m._cols;
 
-            m.rows_ = 0;
-            m.cols_ = 0;
-            m.p = nullptr;
+            m._rows = 0;
+            m._cols = 0;
+            m._ptrData = nullptr;
 
-            cout << "move constructor \n";
+            std::cout << "move constructor \n";
         }
         ~Matrix()
         {
-            for (int i = 0; i < rows_; ++i) {
-                if (p != nullptr && p[i] != nullptr)
-                    delete[] p[i];
+            for (int i = 0; i < _rows; ++i) {
+                if (_ptrData != nullptr && _ptrData[i] != nullptr)
+                    delete[] _ptrData[i];
             }
-            if (p != nullptr)
-                delete[] p;
-            cout << "destructor \n";
+            if (_ptrData != nullptr)
+                delete[] _ptrData;
+            std::cout << "destructor \n";
         }
 
         Matrix& operator=(const Matrix& m)
@@ -61,35 +63,66 @@ namespace MML
                 return *this;
             }
 
-            if (rows_ != m.rows_ || cols_ != m.cols_) {
-                for (int i = 0; i < rows_; ++i) {
-                    delete[] p[i];
+            if (_rows != m._rows || _cols != m._cols) {
+                for (int i = 0; i < _rows; ++i) {
+                    delete[] _ptrData[i];
                 }
-                delete[] p;
+                delete[] _ptrData;
 
-                rows_ = m.rows_;
-                cols_ = m.cols_;
-                p = new double *[rows_];
-                for (int i = 0; i < rows_; ++i)
-                    p[i] = new double[cols_];
+                _rows = m._rows;
+                _cols = m._cols;
+                _ptrData = new double *[_rows];
+                for (int i = 0; i < _rows; ++i)
+                    _ptrData[i] = new double[_cols];
             }
 
-            for (int i = 0; i < rows_; ++i) {
-                for (int j = 0; j < cols_; ++j) {
-                    p[i][j] = m.p[i][j];
+            for (int i = 0; i < _rows; ++i) {
+                for (int j = 0; j < _cols; ++j) {
+                    _ptrData[i][j] = m._ptrData[i][j];
                 }
             }
-            cout << "operator = \n";
+            std::cout << "operator = \n";
             return *this;
         }
-        Matrix& operator=(Matrix&& m);
+        Matrix& operator=(Matrix&& m)
+        {
+            if (this == &m) {
+                return *this;
+            }
 
-        Matrix  operator+(const Matrix &other);
+            std::swap(_ptrData, m._ptrData);
+
+            std::swap(_rows, m._rows);
+            std::swap(_cols, m._cols);
+
+            std::cout << "move operator = \n";
+            return *this;
+        }
+
+        Matrix  operator+(const Matrix &other)
+        {
+            Matrix temp(_rows, _cols);
+            if (_rows != other._rows || _cols != other._cols)
+            {
+                for (int i = 0; i < _rows; i++)
+                    for (int j = 0; j < _cols; j++)
+                        temp._ptrData[i][j] = _ptrData[i][j];
+                return temp;
+            }
+            else
+            {
+                for (int i = 0; i < _rows; i++)
+                    for (int j = 0; j < _cols; j++)
+                        temp._ptrData[i][j] += other._ptrData[i][j] + _ptrData[i][j];
+            }
+            std::cout << "operator + \n";
+            return temp;
+        }
 
 
     private:
-        int rows_;
-        int cols_;
-        double **p;
+        int _rows;
+        int _cols;
+        double **_ptrData;
     };
 }
