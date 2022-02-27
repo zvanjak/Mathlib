@@ -3,6 +3,7 @@
 #include "VectorN.h"
 #include "Matrix.h"
 #include "MatrixOperations.h"
+#include "Integration.h"
 
 int main(int, char**) {
     MML::VectorN a(2);
@@ -33,6 +34,24 @@ int main(int, char**) {
 
     int C = MML::LUDecomp(m1, nullptr, nullptr);
 
+/* TODO
+    1. Vector osnovne operacije
+    2. Matrix formatirani ispis
+    3. Matrix - LU rješavanje
+    4. Matrix - eigenvalues & vectors
+    5. Interpolacija - 
+        - model TabulatedFunction
+            - TabulatedFunction 2D, 3D, 4D
+        - polint
+        - rational polint
+        - spline
+
+- integracija
+- root finding
+- diff eq 
+
+    - usporedba integracije diff jedn s poznatim rezultatom, 
+*/
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;
 
     // Vector eigenValues(2);
