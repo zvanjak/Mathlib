@@ -32,19 +32,20 @@ void Test_Vector_Matrix()
 
     MML::Matrix     mat1(3, 3, { 1.0, 2.0, -1.0, -1.0, 5.0, 6.0, 3.0, 1.0, 1.0 });
     MML::Matrix     rhs1(3, 1, {1.0, 2.0, 1.0});
-    MML::VectorN    rhs1Vec({rhs1[0][0], rhs1[1][0], rhs1[2][0]});
 
     MML::Matrix     mat1copy(mat1);
 
-    MML::MatrixOp::gaussj(mat1, rhs1);
+    MML::MatrixOp::gaussj(mat1copy, rhs1);
 
     std::cout << "Initial matrix:\n";
-    mat1copy.Print();
+    mat1.Print();
 
     std::cout << "Solution:\n";
     rhs1.Print();
 
-    MML::VectorN res = mat1copy * rhs1Vec;
+    // inicijaliziramo rhs1Vec sa rješenjem
+    MML::VectorN    rhs1Vec({rhs1[0][0], rhs1[1][0], rhs1[2][0]});
+    MML::VectorN    res = mat1 * rhs1Vec;
 
     std::cout << "Multiplying solution with matrix: " << res << std::endl;
 
