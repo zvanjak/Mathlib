@@ -35,6 +35,23 @@ void Test_Vector_Matrix()
     m2.Print();
     m3.Print();
 
+    MML::Matrix m4(3,3, { 1.0, 2.0, -1.0, -1.0, 5.0, 6.0, 3.0, 1.0, 1.0 });
+    MML::Matrix m5(3, 1, {1.0, 2.0, 1.0});
+
+    MML::Matrix m4Copy(m4);
+
+    MML::MatrixOp::gaussj(m4, m5);
+
+    m4.Print();
+    m5.Print();
+
+    MML::VectorN vecB({m5[0][0], m5[1][0], m5[2][0]});
+
+    MML::VectorN res = m4Copy * vecB;
+
+    std::cout << res << std::endl;
+
+
     int C = MML::MatrixOp::LUDecomp(m1, nullptr, nullptr);
 
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;

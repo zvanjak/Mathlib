@@ -15,6 +15,8 @@ namespace MML
 
             double& operator[](int n) { return _elems[n]; }
             
+            size_t size() const { return _elems.size(); }
+            
             std::string to_string()
             {
                 std::string a{"0.0"};
