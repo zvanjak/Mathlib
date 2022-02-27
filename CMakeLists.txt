@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 
 project(MathLib_SimpleApp VERSION 0.1.0)
 
-set(MATHLIB_SIMPLE_APP_SOURCES src/simple_app.cpp )
+set(MATHLIB_SIMPLE_APP_SOURCES src/simple_app.cpp src/test_vector_matrix.cpp)
 add_executable(MathLib_SimpleApp ${MATHLIB_SIMPLE_APP_SOURCES})
 
 target_include_directories(MathLib_SimpleApp PRIVATE include)
