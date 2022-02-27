@@ -1,6 +1,9 @@
 #if !defined	__MATRIX_H
 #define	__MATRIX_H
 
+#include "mathlib.h"
+#include "vector.h"
+
 typedef unsigned int	UINT;
 
 #define NO_CONT_ALLOCATION		1

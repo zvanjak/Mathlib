@@ -5,10 +5,9 @@
 #include	<ctype.h>
 #include	<stdlib.h>
 #include	<assert.h>
-#include	<conio.h>
 #include	<time.h>
 
-#include	"mathlib.h"
+#include	"matrix.h"
 
 
 /*******************************************************************/
@@ -17,6 +16,7 @@
 
 Matrix::Matrix()
 {
+	m_pdElem = nullptr;
 }
 
 Matrix::Matrix( int RowNum, int ColNum )
@@ -28,7 +28,7 @@ Matrix::Matrix( int RowNum, int ColNum )
 
 	if( m_nRowNum>0 )
 	{
-		if( !(m_pdElem = new double  *[m_nRowNum]) )         /* rezerviraj mjesto za 'm' pokazivaŸa na 'm' redaka */
+		if( !(m_pdElem = new double  *[m_nRowNum]) )         /* rezerviraj mjesto za 'm' pokazivaï¿½a na 'm' redaka */
 		{				// nema memorije
 			fprintf(stderr, "\n Nema memorije za alociranje matrice !!!");
 			assert(0);
@@ -65,7 +65,7 @@ Matrix::Matrix( int RowNum, int ColNum, int nParam )
 
 	if( m_nRowNum>0 )
 	{
-		if( !(m_pdElem = new double  *[m_nRowNum]) )         // rezerviraj mjesto za 'm' pokazivaŸa na 'm' redaka 
+		if( !(m_pdElem = new double  *[m_nRowNum]) )         // rezerviraj mjesto za 'm' pokazivaï¿½a na 'm' redaka 
 		{				// nema memorije
 			fprintf(stderr, "\n Nema memorije za alociranje matrice !!!");
 			assert(0);
@@ -74,7 +74,7 @@ Matrix::Matrix( int RowNum, int ColNum, int nParam )
 		{
 			if( nParam == CONT_ALLOCATION )
 			{
-				// ovdje æemo alocirati cijelu matricu tako da zauzima kontinuirani
+				// ovdje ï¿½emo alocirati cijelu matricu tako da zauzima kontinuirani
 				// blok memorije
 				double		*pdTmp;
 
@@ -122,7 +122,7 @@ Matrix::Matrix(	const Matrix &Copy )
 		m_nRowNum = (Copy.m_nRowNum > 0) ? Copy.m_nRowNum : 0;
 		m_nColNum = (Copy.m_nColNum > 0) ? Copy.m_nColNum : 0;
 
-		if( !(m_pdElem = new double    *[m_nRowNum]) )         /* rezerviraj mjesto za 'm' pokazivaŸa na 'm' redaka */
+		if( !(m_pdElem = new double    *[m_nRowNum]) )         /* rezerviraj mjesto za 'm' pokazivaï¿½a na 'm' redaka */
 		{				// nema memorije
 			fprintf(stderr, "\n Nema memorije za alociranje matrice !!!");
 			assert(0);
@@ -345,7 +345,7 @@ Matrix  Matrix::operator*=( const	Matrix &b )
 
 	if( m_nColNum==b.m_nRowNum )
 	{
-		// najprije izmnoži matrice
+		// najprije izmnoï¿½i matrice
 		for( i=0; i<ret.m_nRowNum; i++ )
 			for( j=0; j<ret.m_nColNum; j++ )
 			{
@@ -419,11 +419,11 @@ Matrix& Matrix::operator=( const	Matrix &b )
 
 	if( m_pdElem != NULL && b.m_pdElem != NULL )
 	{
-		if( m_nRowNum != b.m_nRowNum || m_nColNum != b.m_nColNum )       	/* ako matrice koje se pridružuju nisu iste dimenzije */
+		if( m_nRowNum != b.m_nRowNum || m_nColNum != b.m_nColNum )       	/* ako matrice koje se pridruï¿½uju nisu iste dimenzije */
 		{
 			fprintf(stdout, "Pridruzuju se matrice razlicitih dimenzija (%d,%d)->(%d,%d)!!!", m_nRowNum, m_nColNum, b.m_nRowNum, b.m_nColNum);
 //			assert(0);
-			for( i=0; i < m_nRowNum; i++ )		/* stare dimenzije izbriši i ustanovi nove */
+			for( i=0; i < m_nRowNum; i++ )		/* stare dimenzije izbriï¿½i i ustanovi nove */
 				if( m_pdElem[i] != NULL )
 					delete m_pdElem[i];
 			if( m_pdElem != NULL )
@@ -516,7 +516,7 @@ void	Matrix::Clear( void )
 			m_pdElem[i][j] = 0;
 }
 
-/*******************		MATRIÈNE FUNKCIJE		**********************/
+/*******************		MATRIï¿½NE FUNKCIJE		**********************/
 
 
 Matrix	Transp( const Matrix &T )
@@ -543,7 +543,7 @@ Matrix  Invert( const Matrix &T )
 
 	if( m == n )
 	{
-		//matricu Ret izjednaèiti sa jediniènom matricom
+		//matricu Ret izjednaï¿½iti sa jediniï¿½nom matricom
 		Ret.MakeUnitMatrix();
 
 		for( k=0; k<n; k++ )
@@ -553,7 +553,7 @@ Matrix  Invert( const Matrix &T )
 				i1 = k;
 				a1 = fabs(a.m_pdElem[k][k]);
 
-				// u k-tom stupcu naði najveæi element po apsolutnoj vrijednosti
+				// u k-tom stupcu naï¿½i najveï¿½i element po apsolutnoj vrijednosti
 				for( i=k+1; i<n; i++ )
 				{
 					if( a1 < fabs(a.m_pdElem[i][k] ) )
@@ -577,7 +577,7 @@ Matrix  Invert( const Matrix &T )
 					}
 				}
 
-				if( a1 == 0 )		// znaèi singularna matrica
+				if( a1 == 0 )		// znaï¿½i singularna matrica
 				{
 					fprintf(stderr, "\n Invert : singularna matrica !!!");
 					assert(0);
@@ -858,10 +858,10 @@ void LUBackSubst( Matrix &a, int *indx, double b[] )
 
 void	QRDecomp( Matrix &a, Vector &c, Vector &d, int *sing )
 {
-	//	Vrši QR dekompoziciju
-	//		Gornja trokutna matrica R se vraæa u gornjem trokutu matrice 'a'
-	//		osim dijagonalnih elemenata, koji se vraæaju u vektoru 'd'
-	//		Ortogonalan matrica Q se vraæa u faktoriziranoj formi
+	//	Vrï¿½i QR dekompoziciju
+	//		Gornja trokutna matrica R se vraï¿½a u gornjem trokutu matrice 'a'
+	//		osim dijagonalnih elemenata, koji se vraï¿½aju u vektoru 'd'
+	//		Ortogonalan matrica Q se vraï¿½a u faktoriziranoj formi
 	int			i, j, k, n;
 	double	scale, sigma, sum, tau;
 
@@ -905,8 +905,8 @@ void	QRDecomp( Matrix &a, Vector &c, Vector &d, int *sing )
 
 void	QSolve( Matrix &a, Vector &c, Vector &d, Vector &b )
 {
-	//	Riješava sistem pomoæu QR dekompozicije
-	//		u 'b' se nalazi vektor desne strane, i u njemu se na kraju nalazi riješenje sistema
+	//	Rijeï¿½ava sistem pomoï¿½u QR dekompozicije
+	//		u 'b' se nalazi vektor desne strane, i u njemu se na kraju nalazi rijeï¿½enje sistema
 	int		i, j, n;
 	double	sum, tau;
 
@@ -924,7 +924,7 @@ void	QSolve( Matrix &a, Vector &c, Vector &d, Vector &b )
 
 void	RSolve( Matrix &a, Vector &d, Vector &b )
 {
-	//	Riješava R*x = b, gdje je R gornja trokutna matrica spremljena u 'a' i 'd'
+	//	Rijeï¿½ava R*x = b, gdje je R gornja trokutna matrica spremljena u 'a' i 'd'
 	int			i, j, n;
 	double	sum;
 
@@ -1633,31 +1633,31 @@ void	CalcEigenvalues( Matrix *matA, Vector *vecR, Vector *vecI )
 	HessEigenvalues(*matA, vecR, vecI );
 }
 
-void	CalcEigenvalues( Matrix matA, ComplexVector *cvecR )
-{
-	Vector		vecR(RowNum(matA)), vecI(RowNum(matA));
+// void	CalcEigenvalues( Matrix matA, ComplexVector *cvecR )
+// {
+// 	Vector		vecR(RowNum(matA)), vecI(RowNum(matA));
 
-	ReductionToHess(matA);
-	HessEigenvalues(matA, &vecR, &vecI );
+// 	ReductionToHess(matA);
+// 	HessEigenvalues(matA, &vecR, &vecI );
 
-	for( int i=0; i<RowNum(matA); i++ )
-	{
-		(*cvecR)[i].Set( vecR[i], vecI[i] );
-	}
-}
+// 	for( int i=0; i<RowNum(matA); i++ )
+// 	{
+// 		(*cvecR)[i].Set( vecR[i], vecI[i] );
+// 	}
+// }
 
-void	CalcEigenvalues( Matrix *matA, ComplexVector *cvecR )
-{
-	Vector		vecR(RowNum(*matA)), vecI(RowNum(*matA));
+// void	CalcEigenvalues( Matrix *matA, ComplexVector *cvecR )
+// {
+// 	Vector		vecR(RowNum(*matA)), vecI(RowNum(*matA));
 
-	ReductionToHess(*matA);
-	HessEigenvalues(*matA, &vecR, &vecI );
+// 	ReductionToHess(*matA);
+// 	HessEigenvalues(*matA, &vecR, &vecI );
 
-	for( int i=0; i<RowNum(*matA); i++ )
-	{
-		(*cvecR)[i].Set( vecR[i], vecI[i] );
-	}
-}
+// 	for( int i=0; i<RowNum(*matA); i++ )
+// 	{
+// 		(*cvecR)[i].Set( vecR[i], vecI[i] );
+// 	}
+// }
 
 int	CalcEigenvectors( Matrix &a, Vector &vecEigenval, Vector **vecEigenvec )
 {
