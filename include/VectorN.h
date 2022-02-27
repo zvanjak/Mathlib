@@ -16,8 +16,8 @@ namespace MML
             double& operator[](int n) { return _elems[n]; }
             
             size_t size() const { return _elems.size(); }
-            
-            std::string to_string()
+
+            std::string to_string(std::string format)
             {
                 std::string a{"0.0"};
 
@@ -31,6 +31,9 @@ namespace MML
                 {
                     if( !first )
                         stream << ", ";
+                    else
+                        first = false;
+
                     stream << std::setw(8) << x;
                 }
                 stream << "]";
