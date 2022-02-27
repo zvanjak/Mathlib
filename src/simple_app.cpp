@@ -34,6 +34,9 @@ int main(int, char**)
 - root finding
 - diff eq 
 
+- i onda, rješenje diff Maxwella npr je neka vektorska funkcija
+    - i onda idem izračunati Gaussa i Stokesa numerički
+
     - usporedba integracije diff jedn s poznatim rezultatom, 
 */
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;
