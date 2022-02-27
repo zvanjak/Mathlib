@@ -1,3 +1,6 @@
+#if !defined  __MML_MATRIX_H
+#define __MML_MATRIX_H
+
 #include <iostream>
 
 namespace MML
@@ -171,3 +174,5 @@ namespace MML
         double **_ptrData;
     };
 }
+
+#endif

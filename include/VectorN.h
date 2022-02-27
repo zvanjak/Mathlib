@@ -1,3 +1,6 @@
+#if !defined  __MML_VECTORN_H
+#define __MML_VECTORN_H
+
 #include <vector>
 
 namespace MML
@@ -13,3 +16,5 @@ namespace MML
             std::vector<double> _elems;
     };
 }
+
+#endif

@@ -2,6 +2,7 @@
 
 #include "VectorN.h"
 #include "Matrix.h"
+#include "MatrixOperations.h"
 
 int main(int, char**) {
     MML::VectorN a(2);
@@ -30,7 +31,8 @@ int main(int, char**) {
     m2.Print();
     m3.Print();
 
-    
+    int C = MML::LUDecomp(m1, nullptr, nullptr);
+
     // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;
 
     // Vector eigenValues(2);
