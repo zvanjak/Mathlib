@@ -4,6 +4,7 @@
 #include "VectorN.h"
 
 #include <iostream>
+#include <iomanip>
 
 namespace MML
 {
@@ -183,7 +184,7 @@ namespace MML
             }
         }
 
-        void Print(void)
+        void Print()
         {
             std::cout << "Rows: " << _rows << "  Cols: " << _cols << std::endl;
 
@@ -191,7 +192,7 @@ namespace MML
             {
                 for (int j = 0; j < _cols; j++)
                 {
-                    std::cout << _ptrData[i][j] << ", ";
+                    std::cout << std::setw(10) << std::setprecision(3) << _ptrData[i][j] << ", ";
                 }
                 std::cout << std::endl;
             }
