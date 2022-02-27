@@ -15,26 +15,30 @@ namespace MML
             _ptrData = new double *[_rows];
             for (int i = 0; i < _rows; ++i)
                 _ptrData[i] = new double[_cols];
-            for (int i = 0; i < _rows; ++i) {
-                for (int j = 0; j < _cols; ++j) {
+            for (int i = 0; i < _rows; ++i)
+            {
+                for (int j = 0; j < _cols; ++j)
+                {
                     _ptrData[i][j] = 0;
                 }
             }
             std::cout << "Matrix::constructor \n";
         }
-        Matrix(const Matrix& m) : _rows(m._rows), _cols(m._cols)
+        Matrix(const Matrix &m) : _rows(m._rows), _cols(m._cols)
         {
             _ptrData = new double *[_rows];
             for (int i = 0; i < _rows; ++i)
                 _ptrData[i] = new double[_cols];
-            for (int i = 0; i < _rows; ++i) {
-                for (int j = 0; j < _cols; ++j) {
+            for (int i = 0; i < _rows; ++i)
+            {
+                for (int j = 0; j < _cols; ++j)
+                {
                     _ptrData[i][j] = m._ptrData[i][j];
                 }
             }
             std::cout << "Matrix::copy constructor \n";
         }
-        Matrix(Matrix&& m)
+        Matrix(Matrix &&m)
         {
             _ptrData = m._ptrData;
 
@@ -49,7 +53,8 @@ namespace MML
         }
         ~Matrix()
         {
-            for (int i = 0; i < _rows; ++i) {
+            for (int i = 0; i < _rows; ++i)
+            {
                 if (_ptrData != nullptr && _ptrData[i] != nullptr)
                     delete[] _ptrData[i];
             }
@@ -58,14 +63,17 @@ namespace MML
             std::cout << "Matrix::destructor \n";
         }
 
-        Matrix& operator=(const Matrix& m)
+        Matrix &operator=(const Matrix &m)
         {
-            if (this == &m) {
+            if (this == &m)
+            {
                 return *this;
             }
 
-            if (_rows != m._rows || _cols != m._cols) {
-                for (int i = 0; i < _rows; ++i) {
+            if (_rows != m._rows || _cols != m._cols)
+            {
+                for (int i = 0; i < _rows; ++i)
+                {
                     delete[] _ptrData[i];
                 }
                 delete[] _ptrData;
@@ -77,17 +85,20 @@ namespace MML
                     _ptrData[i] = new double[_cols];
             }
 
-            for (int i = 0; i < _rows; ++i) {
-                for (int j = 0; j < _cols; ++j) {
+            for (int i = 0; i < _rows; ++i)
+            {
+                for (int j = 0; j < _cols; ++j)
+                {
                     _ptrData[i][j] = m._ptrData[i][j];
                 }
             }
             std::cout << "Matrix::operator = \n";
             return *this;
         }
-        Matrix& operator=(Matrix&& m)
+        Matrix &operator=(Matrix &&m)
         {
-            if (this == &m) {
+            if (this == &m)
+            {
                 return *this;
             }
 
@@ -100,12 +111,12 @@ namespace MML
             return *this;
         }
 
-        double*	operator[]( int i )
+        double *operator[](int i)
         {
             return _ptrData[i];
         }
 
-        Matrix  operator+(const Matrix &other)
+        Matrix operator+(const Matrix &other)
         {
             std::cout << "Matrix::operator + START \n";
 
@@ -127,33 +138,32 @@ namespace MML
             return temp;
         }
 
-        void    MakeUnitMatrix( void )
+        void MakeUnitMatrix(void)
         {
-            if( _rows == _cols )
+            if (_rows == _cols)
             {
-                for( int i=0; i<_rows; i++ )
-                    for( int j=0; j<_cols; j++ )
-                        if( i == j )
+                for (int i = 0; i < _rows; i++)
+                    for (int j = 0; j < _cols; j++)
+                        if (i == j)
                             _ptrData[i][j] = 1;
                         else
                             _ptrData[i][j] = 0;
             }
         }
 
-        void    Print( void )
+        void Print(void)
         {
             std::cout << "Rows: " << _rows << "  Cols: " << _cols << std::endl;
 
-            for( int i=0; i<_rows; i++ )
+            for (int i = 0; i < _rows; i++)
             {
-                for( int j=0; j<_cols; j++ )
+                for (int j = 0; j < _cols; j++)
                 {
                     std::cout << _ptrData[i][j] << ", ";
                 }
                 std::cout << std::endl;
             }
         }
-
 
     private:
         int _rows;
