@@ -21,6 +21,8 @@ int main(int, char**)
 /* TODO
     1. Vector osnovne operacije
     2. Matrix formatirani ispis
+        - da se može inicijalizirati s vector<vector<double>>
+        - inicijalizacija s initializer list?
     3. Matrix - LU rješavanje
     4. Matrix - eigenvalues & vectors
     5. Interpolacija - 
@@ -29,8 +31,15 @@ int main(int, char**)
         - polint
         - rational polint
         - spline
+    6. CoordinateSystems
+        - Point3D, Point3DSpherical, Cylindrical, 
+        - constexpr za izračune izraza transformacije koordinata?
+        - Vector ... sve varijante
+        - METRIKA!!!
 
 - integracija
+    - multidimensional integratio n over regular domains
+    - usporediti integraciju u Kartezijevim i sfernim koord nekog volumnog integrala preko kugle!
 - root finding
 - diff eq 
 

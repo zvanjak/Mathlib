@@ -9,6 +9,7 @@ namespace MML
     {
         public:
             VectorN(int n) : _elems(n) {}
+            VectorN(std::initializer_list<double> list) : _elems(list) { }
 
             double& operator[](int n) { return _elems[n]; }
             

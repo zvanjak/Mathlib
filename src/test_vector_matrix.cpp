@@ -5,15 +5,16 @@
 #include "MatrixOperations.h"
 #include "Integration.h"
 
-void Test_Vector_Matrix() {
+void Test_Vector_Matrix() 
+{
     MML::VectorN a(2);
 
     a[0] = 1.0;
     a[1] = 1.0;
 
-    MML::VectorN b(2);
+    MML::VectorN b{1.0, 2.0, 3.0};
 
-    //b = 2 * a;
+    MML::VectorN c = 2 * a;
 
     std::cout << "Vector = (" << b[0] << ", " << b[1] << ")" << std::endl;
 
