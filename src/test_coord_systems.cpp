@@ -26,23 +26,19 @@ void Test_Coord_Systems()
 {
     std::cout << "TESTING COORDINATE SYSTEMS" << std::endl;
 
-    // zadam skalarno polje - parabola obrnuta s vrhom u centru
-    SimpleScalarField   field;
-
     // odaberem točku (1, 1, 1)
     Vector3D pos(1.0, 1.0, 1.0);
+    std::cout << "Cartesian point: " << pos << std::endl;
+    std::cout << "Spherical point: " << CoordTransf::CartesianToSpherical(pos) << std::endl;
 
+    SimpleScalarField   field;
     Vector3D grad = field.Gradient(pos);
-
     std::cout << "Cartesian gradient: " << grad << std::endl;
 
     SimpleScalarFieldSpherical   fieldSpher;
-
     Vector3DSpherical gradSpher = fieldSpher.Gradient(CoordTransf::CartesianToSpherical(pos));
-
     std::cout << "Spherical gradient: " << gradSpher << std::endl;
 
     Vector3D spherGradTrans = CoordTransf::SphericalToCartesian(gradSpher);
-
     std::cout << "Spherical gradient converted to Cartesian: " << spherGradTrans << std::endl;    
 }
