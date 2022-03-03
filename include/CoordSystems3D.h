@@ -1,5 +1,5 @@
 #include <cmath>
-
+#include <numbers>
 class Vector3D
 {
 private:
@@ -30,23 +30,22 @@ class CoordTransf
 {
    static void SphericalToCartesian(double radius, double polar, double elevation, Vector3D &outCart)
     {
-      double a = radius * cos(elevation);
-      outCart.X = radius * sin(elevation) * cos(polar);
-      outCart.Y = radius * sin(elevation) * sin(polar);
-      outCart.Z = radius * cos(elevation);
+      outCart.X() = radius * sin(elevation) * cos(polar);
+      outCart.Y() = radius * sin(elevation) * sin(polar);
+      outCart.Z() = radius * cos(elevation);
     }
 
-    static void CartesianToSpherical(const Vector3D &cartCoords, double &outRadius, double &outPolar, double &outElevation)
+    static void CartesianToSpherical(Vector3D &cartCoords, double &outRadius, double &outPolar, double &outElevation)
     {
-      if (cartCoords.X == 0)
-        cartCoords.X = 1e-10;
-      outRadius = Math.Sqrt((cartCoords.X * cartCoords.X)
-                      + (cartCoords.Y * cartCoords.Y)
-                      + (cartCoords.Z * cartCoords.Z));
-      outPolar = Math.Atan(cartCoords.Y / cartCoords.X);
-      if (cartCoords.X < 0)
-        outPolar += Math.PI;
-      outElevation = Math.Acos(cartCoords.Z / outRadius);
+      if (cartCoords.X() == 0)
+        cartCoords.X() = 1e-10;
+      outRadius = sqrt((cartCoords.X() * cartCoords.X())
+                      + (cartCoords.Y() * cartCoords.Y())
+                      + (cartCoords.Z() * cartCoords.Z()));
+      outPolar = atan2(cartCoords.Y(), cartCoords.X());
+      if (cartCoords.X() < 0)
+        outPolar += 3.1415963;
+      outElevation = acos(cartCoords.Z() / outRadius);
     }
 };
 

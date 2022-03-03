@@ -11,6 +11,7 @@
         "xloctime": "cpp",
         "xmemory": "cpp",
         "xutility": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "numbers": "cpp"
     }
 }
