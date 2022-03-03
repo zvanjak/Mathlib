@@ -10,10 +10,22 @@ class SimpleScalarField: public ScalarFieldCartesian
 
 };
 
+class SimpleScalarFieldSpherical: public ScalarFieldSpherical
+{
+    public:
+     double Value(Vector3DSpherical &pos)
+     {
+         Vector3D posCart = CoordTransf::SphericalToCartesian(pos);
+
+         return posCart.X() * posCart.X() + posCart.Y() * posCart.Y() + posCart.Z() * posCart.Z();
+     }
+
+};
+
 void Test_Coord_Systems()
 {
     std::cout << "TESTING COORDINATE SYSTEMS" << std::endl;
-    
+
     // zadam skalarno polje - parabola obrnuta s vrhom u centru
     SimpleScalarField   field;
 
@@ -22,7 +34,12 @@ void Test_Coord_Systems()
 
     Vector3D grad = field.Gradient(pos);
 
-    std::cout << grad << std::endl;
-    // ispis
+    std::cout << "Cartesian gradient: " << grad << std::endl;
+
+    SimpleScalarFieldSpherical   fieldSpher;
+
+    Vector3DSpherical gradSpher = fieldSpher.Gradient(CoordTransf::CartesianToSpherical(pos));
+
+    std::cout << "Spherical gradient: " << gradSpher << std::endl;
     
 }

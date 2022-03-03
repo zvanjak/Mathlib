@@ -39,6 +39,7 @@ public:
 
 class CoordTransf
 {
+    public:
     static Vector3D SphericalToCartesian(Vector3DSpherical &vec)
     {
         Vector3D outCart;
@@ -102,8 +103,22 @@ class ScalarFieldSpherical
 public:
     // domain???
     virtual double Value(Vector3DSpherical &pos) = 0;
-    virtual Vector3D Gradient(Vector3DSpherical &pos)
+    virtual Vector3DSpherical Gradient(Vector3DSpherical &pos)
     {
-        return Vector3D{0, 0, 0};
+        double eps = 1e-6;
+
+        Vector3DSpherical pos_r_h1{pos.R() - eps, pos.Rho(), pos.Theta()};
+        Vector3DSpherical pos_r_h2{pos.R() + eps, pos.Rho(), pos.Theta()};
+        double val_r = ( Value(pos_r_h2) - Value(pos_r_h1) ) / (2 * eps);
+
+        Vector3DSpherical pos_rho_h1{pos.R(), pos.Rho() - eps, pos.Theta()};
+        Vector3DSpherical pos_rho_h2{pos.R(), pos.Rho() + eps, pos.Theta()};
+        double val_rho = ( Value(pos_rho_h2) - Value(pos_rho_h1) ) / (2 * eps);
+
+        Vector3DSpherical pos_theta_h1{pos.R(), pos.Rho(), pos.Theta() - eps};
+        Vector3DSpherical pos_theta_h2{pos.R(), pos.Rho(), pos.Theta() + eps};
+        double val_theta = ( Value(pos_theta_h2) - Value(pos_theta_h1) ) / (2 * eps);
+
+        return Vector3DSpherical{val_r, val_rho, val_theta};
     }
 };
