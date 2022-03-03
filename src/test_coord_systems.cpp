@@ -41,5 +41,8 @@ void Test_Coord_Systems()
     Vector3DSpherical gradSpher = fieldSpher.Gradient(CoordTransf::CartesianToSpherical(pos));
 
     std::cout << "Spherical gradient: " << gradSpher << std::endl;
-    
+
+    Vector3D spherGradTrans = CoordTransf::SphericalToCartesian(gradSpher);
+
+    std::cout << "Spherical gradient converted to Cartesian: " << spherGradTrans << std::endl;    
 }

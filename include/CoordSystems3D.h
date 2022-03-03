@@ -35,11 +35,18 @@ public:
     double &R() { return _r; }
     double &Rho() { return _rho; }
     double &Theta() { return _theta; }
+
+    friend std::ostream &operator<<(std::ostream &stream, Vector3DSpherical &a)
+    {
+        stream << "[" << std::setw(8) << a.R() << ", " << a.Rho() << ", " << a.Theta() << "]";
+
+        return stream;
+    }
 };
 
 class CoordTransf
 {
-    public:
+public:
     static Vector3D SphericalToCartesian(Vector3DSpherical &vec)
     {
         Vector3D outCart;
@@ -84,15 +91,15 @@ public:
 
         Vector3D pos_x_h1{pos.X() - eps, pos.Y(), pos.Z()};
         Vector3D pos_x_h2{pos.X() + eps, pos.Y(), pos.Z()};
-        double val_x = ( Value(pos_x_h2) - Value(pos_x_h1) ) / (2 * eps);
+        double val_x = (Value(pos_x_h2) - Value(pos_x_h1)) / (2 * eps);
 
         Vector3D pos_y_h1{pos.X(), pos.Y() - eps, pos.Z()};
         Vector3D pos_y_h2{pos.X(), pos.Y() + eps, pos.Z()};
-        double val_y = ( Value(pos_y_h2) - Value(pos_y_h1) ) / (2 * eps);
+        double val_y = (Value(pos_y_h2) - Value(pos_y_h1)) / (2 * eps);
 
         Vector3D pos_z_h1{pos.X(), pos.Y(), pos.Z() - eps};
         Vector3D pos_z_h2{pos.X(), pos.Y(), pos.Z() + eps};
-        double val_z = ( Value(pos_z_h2) - Value(pos_z_h1) ) / (2 * eps);
+        double val_z = (Value(pos_z_h2) - Value(pos_z_h1)) / (2 * eps);
 
         return Vector3D{val_x, val_y, val_z};
     }
@@ -109,15 +116,15 @@ public:
 
         Vector3DSpherical pos_r_h1{pos.R() - eps, pos.Rho(), pos.Theta()};
         Vector3DSpherical pos_r_h2{pos.R() + eps, pos.Rho(), pos.Theta()};
-        double val_r = ( Value(pos_r_h2) - Value(pos_r_h1) ) / (2 * eps);
+        double val_r = (Value(pos_r_h2) - Value(pos_r_h1)) / (2 * eps);
 
         Vector3DSpherical pos_rho_h1{pos.R(), pos.Rho() - eps, pos.Theta()};
         Vector3DSpherical pos_rho_h2{pos.R(), pos.Rho() + eps, pos.Theta()};
-        double val_rho = ( Value(pos_rho_h2) - Value(pos_rho_h1) ) / (2 * eps);
+        double val_rho = (Value(pos_rho_h2) - Value(pos_rho_h1)) / (2 * eps);
 
         Vector3DSpherical pos_theta_h1{pos.R(), pos.Rho(), pos.Theta() - eps};
         Vector3DSpherical pos_theta_h2{pos.R(), pos.Rho(), pos.Theta() + eps};
-        double val_theta = ( Value(pos_theta_h2) - Value(pos_theta_h1) ) / (2 * eps);
+        double val_theta = (Value(pos_theta_h2) - Value(pos_theta_h1)) / (2 * eps);
 
         return Vector3DSpherical{val_r, val_rho, val_theta};
     }
