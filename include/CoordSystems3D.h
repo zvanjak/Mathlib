@@ -79,7 +79,21 @@ public:
     virtual double Value(Vector3D &pos) = 0;
     virtual Vector3D Gradient(Vector3D &pos)
     {
-        return Vector3D{0, 0, 0};
+        double eps = 1e-6;
+
+        Vector3D pos_x_h1{pos.X() - eps, pos.Y(), pos.Z()};
+        Vector3D pos_x_h2{pos.X() + eps, pos.Y(), pos.Z()};
+        double val_x = ( Value(pos_x_h2) - Value(pos_x_h1) ) / (2 * eps);
+
+        Vector3D pos_y_h1{pos.X(), pos.Y() - eps, pos.Z()};
+        Vector3D pos_y_h2{pos.X(), pos.Y() + eps, pos.Z()};
+        double val_y = ( Value(pos_y_h2) - Value(pos_y_h1) ) / (2 * eps);
+
+        Vector3D pos_z_h1{pos.X(), pos.Y(), pos.Z() - eps};
+        Vector3D pos_z_h2{pos.X(), pos.Y(), pos.Z() + eps};
+        double val_z = ( Value(pos_z_h2) - Value(pos_z_h1) ) / (2 * eps);
+
+        return Vector3D{val_x, val_y, val_z};
     }
 };
 

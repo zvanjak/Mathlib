@@ -12,6 +12,8 @@ class SimpleScalarField: public ScalarFieldCartesian
 
 void Test_Coord_Systems()
 {
+    std::cout << "TESTING COORDINATE SYSTEMS" << std::endl;
+    
     // zadam skalarno polje - parabola obrnuta s vrhom u centru
     SimpleScalarField   field;
 
@@ -20,6 +22,7 @@ void Test_Coord_Systems()
 
     Vector3D grad = field.Gradient(pos);
 
+    std::cout << grad << std::endl;
     // ispis
     
 }
