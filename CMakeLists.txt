@@ -6,6 +6,7 @@ set(MATHLIB_SIMPLE_APP_SOURCES  src/simple_app.cpp
                                 src/test_vector_matrix.cpp
                                 src/test_integration.cpp
                                 src/test_polynom.cpp
+                                src/test_coord_systems.cpp
                                 )
 add_executable(MathLib_SimpleApp ${MATHLIB_SIMPLE_APP_SOURCES})
 

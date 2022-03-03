@@ -8,6 +8,7 @@
 void Test_Vector_Matrix();
 void Test_Integration();
 void Test_Polynom();
+void Test_Coord_Systems();
 
 int main(int, char**) 
 {
@@ -16,6 +17,8 @@ int main(int, char**)
     Test_Integration();
 
     Test_Polynom();
+    
+    Test_Coord_Systems();
     
 
 /* TODO
