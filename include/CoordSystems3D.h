@@ -6,6 +6,7 @@ private:
     double _x, _y, _z;
 
 public:
+    Vector3D() : _x{0.0}, _y{0.0}, _z{0.0}    { }
     Vector3D(double x, double y, double z) : _x{x}, _y{y}, _z{z}    { }
 
     double& X() { return _x; }
@@ -28,11 +29,15 @@ public:
 
 class CoordTransf
 {
-   static void SphericalToCartesian(double radius, double polar, double elevation, Vector3D &outCart)
+   static Vector3D SphericalToCartesian(Vector3DSpherical &vec)
     {
-      outCart.X() = radius * sin(elevation) * cos(polar);
-      outCart.Y() = radius * sin(elevation) * sin(polar);
-      outCart.Z() = radius * cos(elevation);
+        Vector3D outCart;
+
+        outCart.X() = vec.R() * sin(vec.Theta()) * cos(vec.Rho());
+        outCart.Y() = vec.R() * sin(vec.Theta()) * sin(vec.Rho());
+        outCart.Z() = vec.R() * cos(vec.Theta());
+
+        return outCart;
     }
 
     static void CartesianToSpherical(Vector3D &cartCoords, double &outRadius, double &outPolar, double &outElevation)
