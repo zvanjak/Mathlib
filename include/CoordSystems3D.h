@@ -1,3 +1,6 @@
+#if !defined  __MML_COORD_SYSTEMS_H
+#define __MML_COORD_SYSTEMS_H
+
 #include <cmath>
 #include <numbers>
 #include <iostream>
@@ -157,3 +160,5 @@ public:
         return Vector3DSpherical{val_r, val_rho, val_theta};
     }
 };
+
+#endif

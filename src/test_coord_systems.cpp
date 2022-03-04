@@ -1,4 +1,5 @@
 #include "CoordSystems3D.h"
+#include "MetricTensor.h"
 
 class SimpleScalarField: public ScalarFieldCartesian
 {
