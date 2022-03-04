@@ -115,6 +115,35 @@ public:
     }
 };
 
+class GradientFieldCartesian
+{
+    public:
+    ScalarFieldCartesian &_scalarField;
+
+    public:
+    GradientFieldCartesian(ScalarFieldCartesian &scalarField) : _scalarField(scalarField)
+    {}
+
+    virtual Vector3D Value(Vector3D &pos)
+    {
+        double eps = 1e-6;
+
+        Vector3D pos_x_h1{pos.X() - eps, pos.Y(), pos.Z()};
+        Vector3D pos_x_h2{pos.X() + eps, pos.Y(), pos.Z()};
+        double val_x = (_scalarField.Value(pos_x_h2) - _scalarField.Value(pos_x_h1)) / (2 * eps);
+
+        Vector3D pos_y_h1{pos.X(), pos.Y() - eps, pos.Z()};
+        Vector3D pos_y_h2{pos.X(), pos.Y() + eps, pos.Z()};
+        double val_y = (_scalarField.Value(pos_y_h2) - _scalarField.Value(pos_y_h1)) / (2 * eps);
+
+        Vector3D pos_z_h1{pos.X(), pos.Y(), pos.Z() - eps};
+        Vector3D pos_z_h2{pos.X(), pos.Y(), pos.Z() + eps};
+        double val_z = (_scalarField.Value(pos_z_h2) - _scalarField.Value(pos_z_h1)) / (2 * eps);
+
+        return Vector3D{val_x, val_y, val_z};
+    }
+}
+
 class ScalarFieldSpherical
 {
 public:
