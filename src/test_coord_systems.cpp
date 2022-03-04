@@ -43,6 +43,15 @@ void Test_Coord_Systems()
     std::cout << "Sph. grad. to Cart: " << spherGradTrans << std::endl;    
 }
 
+// TODO - apstrakcija Polynom - QuadraticForm2D? -. potencije x i y?
+//      - Polynom2D - input je Vector2D?
+
+// TODO - AUTOMATIC DIFFERENTIATORS
+//      - traže samo Value( X ) funkciju
+
+// TODO - SKALARNA POLJA
+//      - gravitacijski potencijal (gradijent je vektor sile)
+
 // TODO - vector field
 //    - konstantni po jednoj osi
 //    - koncentrični oko osi (dugi vodič)
