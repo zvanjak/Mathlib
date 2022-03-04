@@ -40,5 +40,12 @@ void Test_Coord_Systems()
     std::cout << "Spherical gradient: " << gradSpher << std::endl;
 
     Vector3D spherGradTrans = CoordTransf::SphericalToCartesian(gradSpher);
-    std::cout << "Spherical gradient converted to Cartesian: " << spherGradTrans << std::endl;    
+    std::cout << "Sph. grad. to Cart: " << spherGradTrans << std::endl;    
 }
+
+// TODO - vector field
+//    - konstantni po jednoj osi
+//    - koncentrični oko osi (dugi vodič)
+// TODO  - vector field primjer - laminarni flow u cilindričnoj cijevi!
+
+// kontrast vector fielda koji dobijem od gradijenta, i ovih gore!!!
