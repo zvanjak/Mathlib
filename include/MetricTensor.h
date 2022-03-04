@@ -30,6 +30,11 @@ class Vector<3>
 
 };
 
+template<int N, int M> 
+class Matrix
+{
+};
+
 class MetricTensor3D
 {
     public:

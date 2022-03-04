@@ -54,6 +54,15 @@ void Test_Coord_Systems()
 
 }
 
+// TODO - dodati 2D - Cart + Polar
+
+// TODO - sferne koordinate u dvije konvencije
+
+/*
+HMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+    - krenuti SAMO od transformacijskih funkcija za koordinate???
+    
+*/
 // TODO - apstrakcija Polynom - QuadraticForm2D? -. potencije x i y?
 //      - Polynom2D - input je Vector2D?
 
