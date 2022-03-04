@@ -61,7 +61,8 @@ void Test_Coord_Systems()
 /*
 HMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
     - krenuti SAMO od transformacijskih funkcija za koordinate???
-    
+    -> odatle se može izračunati metrički tenzor u svakoj točki!!!!!
+
 */
 // TODO - apstrakcija Polynom - QuadraticForm2D? -. potencije x i y?
 //      - Polynom2D - input je Vector2D?
