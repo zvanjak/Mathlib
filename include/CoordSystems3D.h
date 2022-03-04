@@ -142,7 +142,7 @@ class GradientFieldCartesian
 
         return Vector3D{val_x, val_y, val_z};
     }
-}
+};
 
 class ScalarFieldSpherical
 {

@@ -34,7 +34,8 @@ void Test_Coord_Systems()
     std::cout << "Spherical point: " << posSpher << std::endl;
 
     SimpleScalarField   field;
-    Vector3D grad = field.Gradient(pos);
+    GradientFieldCartesian  fieldGrad(field);
+    Vector3D grad = fieldGrad.Value(pos);
     std::cout << "Cartesian gradient: " << grad << std::endl;
 
     SimpleScalarFieldSpherical   fieldSpher;
