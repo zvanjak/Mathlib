@@ -29,7 +29,9 @@ void Test_Coord_Systems()
     // odaberem točku (1, 1, 1)
     Vector3D pos(1.0, 1.0, 1.0);
     std::cout << "Cartesian point: " << pos << std::endl;
-    std::cout << "Spherical point: " << CoordTransf::CartesianToSpherical(pos) << std::endl;
+
+    Vector3DSpherical posSpher = CoordTransf::CartesianToSpherical(pos);
+    std::cout << "Spherical point: " << posSpher << std::endl;
 
     SimpleScalarField   field;
     Vector3D grad = field.Gradient(pos);
@@ -41,6 +43,13 @@ void Test_Coord_Systems()
 
     Vector3D spherGradTrans = CoordTransf::SphericalToCartesian(gradSpher);
     std::cout << "Sph. grad. to Cart: " << spherGradTrans << std::endl;    
+
+    std::cout << "Cartesian gradient tip point: " << pos + grad << std::endl;
+    std::cout << "Spherical gradient tip point: " << posSpher + gradSpher << std::endl;
+
+    Vector3D spherTipTrans = CoordTransf::SphericalToCartesian(posSpher + gradSpher);
+    std::cout << "Sph. grad. tip conv. to Cart: " << spherTipTrans << std::endl;    
+
 }
 
 // TODO - apstrakcija Polynom - QuadraticForm2D? -. potencije x i y?

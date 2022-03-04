@@ -16,6 +16,11 @@ public:
     double &Y() { return _y; }
     double &Z() { return _z; }
 
+    Vector3D operator+(Vector3D &b)
+    {
+        return Vector3D{X()+b.X(), Y() + b.Y(), Z() + b.Z()};
+    }
+
     friend std::ostream &operator<<(std::ostream &stream, Vector3D &a)
     {
         stream << "[" << std::setw(8) << a.X() << ", " << a.Y() << ", " << a.Z() << "]";
@@ -35,6 +40,11 @@ public:
     double &R() { return _r; }
     double &Rho() { return _rho; }
     double &Theta() { return _theta; }
+
+    Vector3DSpherical operator+(Vector3DSpherical &b)
+    {
+        return Vector3DSpherical{R()+b.R(), Rho() + b.Rho(), Theta() + b.Theta()};
+    }
 
     friend std::ostream &operator<<(std::ostream &stream, Vector3DSpherical &a)
     {
