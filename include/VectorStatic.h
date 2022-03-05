@@ -1,3 +1,5 @@
+#if !defined  __MML_VECTOR_STATIC_H
+#define __MML_VECTOR_STATIC_H
 
 
 template<int N> 
@@ -30,3 +32,5 @@ class Vector<3>
 {
 
 };
+
+#endif

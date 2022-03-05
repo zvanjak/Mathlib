@@ -2,17 +2,22 @@
 
 // Function1D
 
-class Function
+class ScalarFunction
 {
     public:
     std::function<double(double)> &_func;
 
-    Function(std::function<double(double)> inFunc) : _func(inFunc)
+    ScalarFunction(std::function<double(double)> inFunc) : _func(inFunc)
     {}
 
 };
 
-class VectorFunction
+class VectorToScalarFunction
+{
+
+};
+
+class VectorToVectorFunction
 {
 
 };

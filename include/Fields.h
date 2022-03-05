@@ -7,6 +7,14 @@
 #include <iomanip>
 
 #include "CoordSystems3D.h"
+#include "VectorStatic.h"
+
+template<int N>
+class ScalarField
+{
+    virtual double Value(Vector<N> &pos) = 0;
+
+};
 
 class Cartesian3DDomain
 {
