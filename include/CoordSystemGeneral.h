@@ -6,12 +6,19 @@
 
 */
 
-class CoordSystemTransf3D
+template<int N>
+class CoordSystemTransf
 {
     public:
-    virtual Vector<3> transf(Vector<3> in) = 0;
+    virtual Vector<N> transf(Vector<N> in) = 0;
 
     // ako je definirana tranfromacija
     //      to mora biti kvalitenta funkcija, koja se po parametrima može derivirati numerički!!!
     // zna vratiti MetricTensor u točki!
 };
+
+class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
+{
+
+};
+
