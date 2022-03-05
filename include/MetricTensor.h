@@ -35,6 +35,12 @@ class Matrix
 {
 };
 
+class CoordTransf
+{
+    public:
+    virtual Vector<3> transf(Vector<3> &vec) = 0;
+};
+
 class MetricTensor3D
 {
     public:
