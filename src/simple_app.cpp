@@ -9,6 +9,8 @@ void Test_Vector_Matrix();
 void Test_Integration();
 void Test_Polynom();
 void Test_Coord_Systems();
+void Test_Metric_Tensor();
+void Test_Function();
 
 int main(int, char**) 
 {
@@ -20,6 +22,9 @@ int main(int, char**)
     
     Test_Coord_Systems();
     
+    Test_Metric_Tensor();
+
+    Test_Function();
 
 /* TODO
     1. Vector osnovne operacije

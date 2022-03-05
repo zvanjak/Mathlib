@@ -10,7 +10,12 @@ class Function
     Function(std::function<double(double)> inFunc) : _func(inFunc)
     {}
 
-}
+};
+
+class VectorFunction
+{
+
+};
 
 // VectorFunction!!!
 // može se parcijalno derivirati

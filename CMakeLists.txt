@@ -7,6 +7,8 @@ set(MATHLIB_SIMPLE_APP_SOURCES  src/simple_app.cpp
                                 src/test_integration.cpp
                                 src/test_polynom.cpp
                                 src/test_coord_systems.cpp
+                                src/test_function.cpp
+                                src/test_metric_tensor.cpp
                                 )
 add_executable(MathLib_SimpleApp ${MATHLIB_SIMPLE_APP_SOURCES})
 
