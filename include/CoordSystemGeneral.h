@@ -22,3 +22,8 @@ class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
 
 };
 
+class CoordTransfCartesianToSpherical : public CoordSystemTransf<3>
+{
+
+};
+
