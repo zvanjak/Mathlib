@@ -13,7 +13,7 @@ template<int N>
 class ScalarField
 {
     virtual double Value(Vector<N> &pos) = 0;
-
+// treba dodati metrički tenzor da bude generičko?
 };
 
 class Cartesian3DDomain
