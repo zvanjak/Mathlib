@@ -1,6 +1,8 @@
 #include <functional>
 
-double Derivation(std::function<double(double)> f)
+#include "Function.h"
+
+double Derivation(Function &f)
 {
 
 }
