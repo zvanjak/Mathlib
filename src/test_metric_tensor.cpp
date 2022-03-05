@@ -1,6 +1,6 @@
 #include "MetricTensor.h"
 
-void Test_Metric_Tenso()
+void Test_Metric_Tensor()
 {
-    
+
 }

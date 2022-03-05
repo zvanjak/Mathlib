@@ -35,10 +35,17 @@ class Matrix
 {
 };
 
-class CoordTransf
+template<int N>
+class CoordTransfNew
 {
     public:
-    virtual Vector<3> transf(Vector<3> &vec) = 0;
+    virtual Vector<N> transf(Vector<N> &vec) = 0;
+};
+
+
+class CoordTransfSphericalToCartesian : public CoordTransfNew<3>
+{
+
 };
 
 class MetricTensor3D
