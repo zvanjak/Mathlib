@@ -2,6 +2,14 @@ cmake_minimum_required(VERSION 3.0.0)
 
 project(MathLib_SimpleApp VERSION 0.1.0)
 
+find_package( Boost 1.78.0 )
+
+if ( Boost_FOUND )
+    include_directories( ${Boost_INCLUDE_DIRS} )
+else()
+    message( FATAL_ERROR "Required Boost packages not found. Perhaps add -DBOOST_ROOT?" )
+endif()
+
 set(MATHLIB_SIMPLE_APP_SOURCES  src/simple_app.cpp 
                                 src/test_vector_matrix.cpp
                                 src/test_integration.cpp

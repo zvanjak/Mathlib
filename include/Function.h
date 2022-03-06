@@ -10,7 +10,7 @@ class ScalarFunction
     ScalarFunction(std::function<double(double)> inFunc) : _func(inFunc)
     {}
 
-    double operator()(double x)
+    double operator()(double x) const
     {
         return _func(x);
     }
