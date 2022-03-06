@@ -1,5 +1,7 @@
 #include <functional>
 
+#include "VectorStatic.h"
+
 // Function1D
 
 class ScalarFunction
@@ -19,7 +21,7 @@ class ScalarFunction
 class VectorToScalarFunction
 {
     public:
-    std::function<double(double)> &_func;
+    std::function<double(Vector<3>)> &_func;
 
     VectorToScalarFunction(std::function<double(double)> &inFunc) : _func(inFunc)
     {}
@@ -33,7 +35,7 @@ class VectorToScalarFunction
 class VectorToVectorFunction
 {
     public:
-    std::function<double(double)> &_func;
+    std::function<Vector<3>(Vector<3>)> &_func;
 
     VectorToVectorFunction(std::function<double(double)> &inFunc) : _func(inFunc)
     {}
