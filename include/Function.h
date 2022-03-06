@@ -14,16 +14,34 @@ class ScalarFunction
     {
         return _func(x);
     }
-
 };
 
 class VectorToScalarFunction
 {
+    public:
+    std::function<double(double)> &_func;
 
+    VectorToScalarFunction(std::function<double(double)> &inFunc) : _func(inFunc)
+    {}
+
+    double operator()(double x) const
+    {
+        return _func(x);
+    }
 };
 
 class VectorToVectorFunction
 {
+    public:
+    std::function<double(double)> &_func;
+
+    VectorToVectorFunction(std::function<double(double)> &inFunc) : _func(inFunc)
+    {}
+
+    double operator()(double x) const
+    {
+        return _func(x);
+    }
 
 };
 
