@@ -11,13 +11,15 @@ class Vector
 
     Vector(std::initializer_list<double> list) 
     { 
-        int i=0;
-        auto p = list.begin();
-        while( i < list.size() && i < N)
-        {
-            _val[i] = *p;
-            p++;
-        }
+       	int count{ 0 };
+		for (auto element : list)
+		{
+			_val[count] = element;
+			++count;
+
+            if( count >= N )
+                break;
+		}
     }
 
     double& operator[](int n) { return _val[n]; }
