@@ -4,11 +4,11 @@
 
 #include "../lib/finite_difference.hpp"
 
-double Derivation(const ScalarFunction &f)
+double Derive(const ScalarFunction &f, double x)
 {
     //auto f = [](double x) { return std::exp(x); };
-    double x = 1.7;
+    //double x = 1.7;
     double dfdx = boost::math::differentiation::finite_difference_derivative(f, x);
 
-    return 0.0;
+    return dfdx;
 }

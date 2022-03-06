@@ -7,7 +7,7 @@ class ScalarFunction
     public:
     std::function<double(double)> &_func;
 
-    ScalarFunction(std::function<double(double)> inFunc) : _func(inFunc)
+    ScalarFunction(std::function<double(double)> &inFunc) : _func(inFunc)
     {}
 
     double operator()(double x) const
