@@ -23,7 +23,7 @@ TEST_CASE("Test_Derivative", "[simple]") {
 
 double TestScalarField(Vector<3> x)
 {
-    return 0.0;
+    return cos(x[0]) + sin(x[1]) + tan(x[2]);
 }
 
 TEST_CASE("Test_Partial_Derivative", "[simple]") {
@@ -36,7 +36,7 @@ TEST_CASE("Test_Partial_Derivative", "[simple]") {
 
     double d = f(point);
 
-    double der = DerivePartial(f, 0, point);
-
-    REQUIRE(cos(1.0) == Approx(der).epsilon(1e-10));
+    // prva komponenta je cos() pa očekujemo derivaciju sin()
+    double der1 = DerivePartial(f, 0, point);
+    REQUIRE(sin(1.0) == Approx(der1).epsilon(1e-10));
 }
