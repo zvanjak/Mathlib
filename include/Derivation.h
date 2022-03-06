@@ -12,3 +12,10 @@ double Derive(const ScalarFunction &f, double x)
 
     return dfdx;
 }
+
+double DerivePartial(const VectorFunction &f, int deriv_index, Vector<3> &x)
+{
+    double dfdx = boost::math::differentiation::finite_difference_derivative(f, x);
+
+    return dfdx;
+}

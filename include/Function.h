@@ -18,12 +18,12 @@ class ScalarFunction
     }
 };
 
-class VectorToScalarFunction
+class VectorFunction
 {
     public:
     std::function<double(Vector<3>)> &_func;
 
-    VectorToScalarFunction(std::function<double(Vector<3>)> &inFunc) : _func(inFunc)
+    VectorFunction(std::function<double(Vector<3>)> &inFunc) : _func(inFunc)
     {}
 
     double operator()(Vector<3> x) const
