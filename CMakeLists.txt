@@ -19,7 +19,9 @@ add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
 file(GLOB MATHLIB_SOURCES src/mml.h src/VectorN.h)
-file(GLOB MATHLIB_TESTS tests/vector_tests.cpp)
+file(GLOB MATHLIB_TESTS tests/vector_tests.cpp
+                        tests/derivation_tests.cpp 
+                        )
 
 add_executable(Mathlib_Tests "mathlib_test_runner.cpp" ${MATHLIB_SOURCES} ${MATHLIB_TESTS} )
 target_link_libraries(Mathlib_Tests Catch)

@@ -3,7 +3,8 @@
         {
             "name": "Win64-VisualStudio",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "C:\\Dev\\boost_1_78_0"
             ],
             "defines": [
                 "_DEBUG",
