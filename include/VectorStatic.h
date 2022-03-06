@@ -8,6 +8,9 @@ class Vector
     public:
     double  _val[N];
 
+    double& operator[](int n) { return _val[n]; }
+    double  operator[](int n) const { return _val[n]; }
+
     Vector operator+(Vector &b )
     {
         Vector ret;
@@ -27,10 +30,10 @@ class Vector
 };
 
 // SPECIJALIZACIJE ZA 2, 3 I 4
-template<>
-class Vector<3>
-{
+// template<>
+// class Vector<3>
+// {
 
-};
+// };
 
 #endif
