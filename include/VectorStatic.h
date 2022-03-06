@@ -1,12 +1,24 @@
 #if !defined  __MML_VECTOR_STATIC_H
 #define __MML_VECTOR_STATIC_H
 
+#include <initializer_list>
 
 template<int N> 
 class Vector
 {
     public:
     double  _val[N];
+
+    Vector(std::initializer_list<double> list) 
+    { 
+        int i=0;
+        auto p = list.begin();
+        while( i < list.size() && i < N)
+        {
+            _val[i] = *p;
+            p++;
+        }
+    }
 
     double& operator[](int n) { return _val[n]; }
     double  operator[](int n) const { return _val[n]; }

@@ -13,19 +13,20 @@ double Derive(const ScalarFunction &f, double x)
     return dfdx;
 }
 
+template<int N>
 class HelperFunc
 {
-    const VectorFunction &_func;
-    Vector<3> &_x;
+    const VectorFunction<N> &_func;
+    Vector<N> &_x;
     int _der_ind;
 
     public:
-    HelperFunc(const VectorFunction &inFunc, Vector<3> &x, int der_ind) : _func(inFunc), _x(x), _der_ind(der_ind)
+    HelperFunc(const VectorFunction<N> &inFunc, Vector<N> &x, int der_ind) : _func(inFunc), _x(x), _der_ind(der_ind)
     {}
 
     double operator() (double x) const
     {
-        Vector<3> copy{_x};
+        Vector<N> copy{_x};
 
         copy[_der_ind] = x;
 
@@ -33,10 +34,11 @@ class HelperFunc
     }
 };
 
-double DerivePartial(const VectorFunction &f, int deriv_index, Vector<3> &point)
+template<int N>
+double DerivePartial(const VectorFunction<N> &f, int deriv_index, Vector<N> &point)
 {
     double x = point[deriv_index];
-    HelperFunc helper{f, point, deriv_index};
+    HelperFunc<N> helper{f, point, deriv_index};
 
     double dfdx = boost::math::differentiation::finite_difference_derivative(helper, x);
 

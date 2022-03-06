@@ -5,6 +5,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <initializer_list>
+
 namespace MML
 {
     class VectorN
