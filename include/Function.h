@@ -23,10 +23,10 @@ class VectorToScalarFunction
     public:
     std::function<double(Vector<3>)> &_func;
 
-    VectorToScalarFunction(std::function<double(double)> &inFunc) : _func(inFunc)
+    VectorToScalarFunction(std::function<double(Vector<3>)> &inFunc) : _func(inFunc)
     {}
 
-    double operator()(double x) const
+    double operator()(Vector<3> x) const
     {
         return _func(x);
     }
@@ -37,10 +37,10 @@ class VectorToVectorFunction
     public:
     std::function<Vector<3>(Vector<3>)> &_func;
 
-    VectorToVectorFunction(std::function<double(double)> &inFunc) : _func(inFunc)
+    VectorToVectorFunction(std::function<Vector<3>(Vector<3>)> &inFunc) : _func(inFunc)
     {}
 
-    double operator()(double x) const
+    Vector<3> operator()(Vector<3> x) const
     {
         return _func(x);
     }
