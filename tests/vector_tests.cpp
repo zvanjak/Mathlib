@@ -14,6 +14,6 @@ TEST_CASE("Test_VectorN_mul_double", "[simple]") {
 
     //b = 2 * a;
 
-	REQUIRE(2.0 ==  b[0]);
-	REQUIRE(2.0 ==  b[1]);
+	REQUIRE(1.0 ==  a[0]);
+	REQUIRE(1.0 ==  a[1]);
 }

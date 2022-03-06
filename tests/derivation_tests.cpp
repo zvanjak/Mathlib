@@ -13,10 +13,10 @@ TEST_CASE("Test_Derivative", "[simple]") {
     ScalarFunction f{func};
 
     double c = func(1.0);
-    
+
     double d = f(1.0);
 
     double der = Derive(f, 1.0);
 
-    REQUIRE(cos(1.0) == der);
+    REQUIRE(cos(1.0) == Approx(der).epsilon(1e-10));
 }
