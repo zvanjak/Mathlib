@@ -2,7 +2,9 @@
 
 #include "Function.h"
 
-double Derivation(Function &f)
-{
+#include "../lib/finite_difference.hpp"
 
+double Derivation(ScalarFunction &f)
+{
+    
 }

@@ -10,6 +10,11 @@ class ScalarFunction
     ScalarFunction(std::function<double(double)> inFunc) : _func(inFunc)
     {}
 
+    double operator()(double x)
+    {
+        return _func(x);
+    }
+
 };
 
 class VectorToScalarFunction
