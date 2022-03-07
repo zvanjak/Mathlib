@@ -32,5 +32,26 @@ class ScalarFieldWithFunction: public ScalarField<N>
 // treba dodati metrički tenzor da bude generičko?
 };
 
+template<int N>
+class VectorField
+{
+public:
+    // domain???
+    virtual Vector<N> Value(Vector<N> &pos) = 0;
+};
+
+template<int N>
+class GradientField : public VectorField<N>
+{
+    ScalarField<N> _scalarField;
+public:
+    GradientField(ScalarField<N> &inField) : _scalarField(inField)
+    {}
+    
+    Vector<N> Value(Vector<N> &pos) 
+    {
+        return Vector<N>{};
+    }
+};
 
 #endif
