@@ -16,6 +16,8 @@ class ScalarField
     public:
     virtual double Value(Vector<N> &pos) = 0;
 // treba dodati metrički tenzor da bude generičko?
+
+// i onda primjer s dva fielda - Cart i Spher - za radijalno 1/r polje gradijent
 };
 
 template<int N>
@@ -47,7 +49,7 @@ class GradientField : public VectorField<N>
 public:
     GradientField(ScalarField<N> &inField) : _scalarField(inField)
     {}
-    
+
     Vector<N> Value(Vector<N> &pos) 
     {
         return Vector<N>{};

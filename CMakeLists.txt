@@ -19,6 +19,7 @@ set(MATHLIB_SIMPLE_APP_SOURCES  src/simple_app.cpp
                                 src/test_coord_systems.cpp
                                 src/test_function.cpp
                                 src/test_metric_tensor.cpp
+                                src/test_fields.cpp
                                 )
 add_executable(MathLib_SimpleApp ${MATHLIB_SIMPLE_APP_SOURCES})
 
