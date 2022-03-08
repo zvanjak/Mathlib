@@ -14,6 +14,8 @@ class FunctionTemplate
     virtual _RetType operator()(_ArgType) = 0;
 };
 
+// napraviti specijalizaciju za double, double
+// odnosno nekoliko njih! - jedna je std::function, druga je Tabulated
 // Function1D
 
 class ScalarFunction
