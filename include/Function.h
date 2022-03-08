@@ -1,3 +1,6 @@
+#if !defined  __MML_FUNCTION_H
+#define __MML_FUNCTION_H
+
 #include <functional>
 
 #include "VectorStatic.h"
@@ -51,3 +54,5 @@ class VectorToVectorFunction
 // VectorFunction!!!
 // može se parcijalno derivirati
 // može se inicijalizirati s Vector3 Transf(Vector3)!
+
+#endif

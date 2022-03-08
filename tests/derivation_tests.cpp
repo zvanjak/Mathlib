@@ -16,7 +16,7 @@ TEST_CASE("Test_Derivative", "[simple]") {
 
     double d = f(1.0);
 
-    double der = Derive(f, 1.0);
+    double der = Derivation::Derive(f, 1.0);
 
     REQUIRE(cos(1.0) == Approx(der).epsilon(1e-10));
 }
@@ -37,15 +37,15 @@ TEST_CASE("Test_Partial_Derivative", "[simple]") {
     double d = f(point);
 
     // prva komponenta je cos() pa očekujemo derivaciju -sin()
-    double der1 = DerivePartial(f, 0, point);
+    double der1 = Derivation::DerivePartial(f, 0, point);
     REQUIRE(-sin(1.0) == Approx(der1).epsilon(1e-10));
 
     // druga  komponenta je sin() pa očekujemo derivaciju cos()
-    double der2 = DerivePartial(f, 1, point);
+    double der2 = Derivation::DerivePartial(f, 1, point);
     REQUIRE(cos(1.0) == Approx(der2).epsilon(1e-10));
 
     // treća komponenta je exp() pa očekujemo derivaciju exp()
-    double der3 = DerivePartial(f, 2, point);
+    double der3 = Derivation::DerivePartial(f, 2, point);
     REQUIRE(exp(1.0) == Approx(der3).epsilon(1e-10));
 
 }

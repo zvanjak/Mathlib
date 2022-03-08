@@ -13,6 +13,7 @@ class CoordSystemTransf
 {
     public:
     virtual Vector<N> transf(Vector<N> in) = 0;
+    virtual VectorFunction<N> coordTransfFunc(int i) = 0;
 
     // ako je definirana transformacija
     //      to mora biti kvalitenta funkcija, koja se po parametrima može derivirati numerički!!!
@@ -21,9 +22,13 @@ class CoordSystemTransf
 
 class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
 {
+    static double func1(Vector<3> q) { return q[0] * sin(q[1]) * cos(q[2]); }
+
+    inline static VectorFunction<3> _func = { VectorFunction<3>{std::function<double(Vector<3>)>{func1}}};
     // q1 = r     - radial distance
     // q2 = theta - polar angle
     // q3 = phi   - azimuthal angle
+
     public:
     Vector<3> transf(Vector<3> q)
     {
@@ -34,6 +39,12 @@ class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
         ret[2] = q[0] * cos(q[1]);
 
         return ret;
+
+    }
+
+    VectorFunction<3> coordTransfFunc(int i)
+    {
+        return _func;
 
     }
 };
