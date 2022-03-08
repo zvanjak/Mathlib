@@ -15,7 +15,7 @@ class ScalarField
 {
     public:
     virtual double Value(Vector<N> &pos) = 0;
-// treba dodati metrički tenzor da bude generičko?
+    virtual MetricTensor<N>& Metric(Vector<N> &pos) = 0;
 
 // i onda primjer s dva fielda - Cart i Spher - za radijalno 1/r polje gradijent
 };
