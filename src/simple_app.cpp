@@ -11,6 +11,7 @@ void Test_Polynom();
 void Test_Coord_Systems();
 void Test_Metric_Tensor();
 void Test_Function();
+void Test_Fields();
 
 int main(int, char**) 
 {
@@ -24,7 +25,9 @@ int main(int, char**)
     
     Test_Metric_Tensor();
 
-    Test_Function();
+    //Test_Function();
+
+    Test_Fields();
 
 /* TODO
     1. Vector osnovne operacije
