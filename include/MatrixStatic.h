@@ -14,7 +14,7 @@ class Matrix
         {
             for (int j = 0; j < M; j++)
             {
-                std::cout << std::setw(10) << std::setprecision(3) << _ptrData[i][j] << ", ";
+                std::cout << std::setw(10) << std::setprecision(3) << _vals[i][j] << ", ";
             }
             std::cout << std::endl;
         }
