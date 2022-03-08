@@ -14,19 +14,24 @@ class CoordSystemTransf
     public:
     virtual Vector<N> transf(Vector<N> in) = 0;
 
-    // ako je definirana tranfromacija
+    // ako je definirana transformacija
     //      to mora biti kvalitenta funkcija, koja se po parametrima može derivirati numerički!!!
     // zna vratiti MetricTensor u točki!
 };
 
 class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
 {
+    // q1 = r     - radial distance
+    // q2 = theta - polar angle
+    // q3 = phi   - azimuthal angle
     public:
-    Vector<3> transf(Vector<3> in)
+    Vector<3> transf(Vector<3> q)
     {
         Vector<3> ret;
 
-        ret[0] = in[0] * sin(in[1]) * cos(in[2]);
+        ret[0] = q[0] * sin(q[1]) * cos(q[2]);
+        ret[1] = q[0] * sin(q[1]) * sin(q[2]);
+        ret[2] = q[0] * cos(q[1]);
 
         return ret;
 
