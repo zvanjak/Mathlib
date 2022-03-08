@@ -43,3 +43,22 @@ class CoordTransfCartesianToSpherical : public CoordSystemTransf<3>
 
 };
 
+class CoordTransfCylindricalToCartesian : public CoordSystemTransf<3>
+{
+    // q1 = r     - distance from symmetry axis
+    // q2 = theta - angle to symmetry axis
+    // q3 = z     - z
+    public:
+    Vector<3> transf(Vector<3> q)
+    {
+        Vector<3> ret;
+
+        ret[0] = q[0] * cos(q[1]);
+        ret[1] = q[0] * sin(q[1]);
+        ret[2] = q[2];
+
+        return ret;
+
+    }
+};
+
