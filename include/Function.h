@@ -5,6 +5,15 @@
 
 #include "VectorStatic.h"
 
+
+// TODO
+template<typename _RetType, typename _ArgType>
+class FunctionTemplate
+{
+    public:
+    virtual _RetType operator()(_ArgType) = 0;
+};
+
 // Function1D
 
 class ScalarFunction
