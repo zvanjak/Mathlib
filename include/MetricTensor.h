@@ -30,14 +30,16 @@ class MetricTensorFromCoordTransf
         double g_ij = 0.0;
         for(int l=0; l<3; l++)
         {
-            //g_ij += DerivePartial(_coordTransf)
+            g_ij += Derivation::DerivePartial(_coordTransf.coordTransfFunc(l),i, pos) * Derivation::DerivePartial(_coordTransf.coordTransfFunc(l), j, pos);
         }
         return g_ij;
     }
 
     virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos)
     {
+        Matrix<N, N> ret;
 
+        return ret;
     }
 };
 
