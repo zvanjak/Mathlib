@@ -10,8 +10,11 @@ void Test_Metric_Tensor()
 
     Vector<3> point { 1.0, 1.0, 1.0 };
 
-    double a = transf.coordTransfFunc(0)(point);
-    a = mt.Component(0, 0, point);
 
-    std::cout << "g[0,0] = " << a << std::endl;
+    for( int i=0; i<3; i++ )
+        for( int j=0; j<3; j++ )
+        {
+            double a = mt.Component(i, j, point);
+            std::cout << "g[" << i << "," << j << "] = " << a << std::endl;
+        }
 }
