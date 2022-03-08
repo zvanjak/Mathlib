@@ -25,9 +25,9 @@ template<int N>
 class VectorFunction
 {
     public:
-    std::function<double(Vector<N>)> &_func;
+    std::function<double(Vector<N>)> _func;
 
-    VectorFunction(std::function<double(Vector<N>)> &inFunc) : _func(inFunc)
+    VectorFunction(std::function<double(Vector<N>)> inFunc) : _func(inFunc)
     {}
 
     double operator()(Vector<N> x) const
