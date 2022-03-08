@@ -9,6 +9,7 @@
 #include "CoordSystems3D.h"
 #include "VectorStatic.h"
 #include "Function.h"
+#include "MetricTensor.h"
 
 template<int N>
 class ScalarField

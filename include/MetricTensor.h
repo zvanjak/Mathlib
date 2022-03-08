@@ -15,7 +15,7 @@ class MetricTensor
 };
 
 template<int N>
-class MetricTensorFromCoordTransf
+class MetricTensorFromCoordTransf: public MetricTensor<N>
 {
     CoordSystemTransf<N> &_coordTransf;
 

@@ -1,3 +1,6 @@
+#if !defined __MML_COORD_SYSTEM_GENERAL_H
+#define __MML_COORD_SYSTEM_GENERAL_H
+
 #include <cmath>
 
 #include "MetricTensor.h"
@@ -70,3 +73,4 @@ class CoordTransfCylindricalToCartesian : public CoordSystemTransf<3>
     }
 };
 
+#endif
