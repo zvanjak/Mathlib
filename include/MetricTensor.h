@@ -17,10 +17,10 @@ class MetricTensor
 template<int N>
 class MetricTensorFromCoordTransf
 {
-    CoordSystemTransf &_coordTransf;
+    CoordSystemTransf<N> &_coordTransf;
 
     public:
-    MetricTensorFromCoordTransf(CoordSystemTransf &inTransf) : _coordTransf(inTransf)
+    MetricTensorFromCoordTransf(CoordSystemTransf<N> &inTransf) : _coordTransf(inTransf)
     {
         
     }
@@ -30,8 +30,9 @@ class MetricTensorFromCoordTransf
         double g_ij = 0.0;
         for(int l=0; l<3; l++)
         {
-            g_ij += DerivePartial(_coordTransf)
+            //g_ij += DerivePartial(_coordTransf)
         }
+        return g_ij;
     }
 
     virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos)
