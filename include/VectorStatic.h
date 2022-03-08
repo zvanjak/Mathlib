@@ -9,6 +9,8 @@ class Vector
     public:
     double  _val[N];
 
+    Vector() {}
+
     Vector(std::initializer_list<double> list) 
     { 
        	int count{ 0 };
