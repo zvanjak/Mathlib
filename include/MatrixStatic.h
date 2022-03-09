@@ -1,13 +1,28 @@
 #include <iostream>
 
-template<int N, int M> 
+template <int N, int M>
 class Matrix
 {
     double _vals[N][M];
 
-    public:
-    double&     operator() (int i, int j) { return _vals[i][j]; }
+public:
+    double &operator()(int i, int j) { return _vals[i][j]; }
 
+    Vector<N> operator*(Vector<N> &b)
+    {
+        int i, j;
+        Vector<N> ret;
+
+        for (i = 0; i < N; i++)
+        {
+            ret[i] = 0;
+            for (j = 0; j < N; j++)
+                ret[i] += _vals[i][j] * b[j];
+        }
+
+        return ret;
+    }
+    
     void Print()
     {
         for (int i = 0; i < N; i++)

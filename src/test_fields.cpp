@@ -50,6 +50,8 @@ void Test_Fields()
     Vector<3> posC{1.0, 1.0, 1.0 };
     Vector<3> gradC = fieldCart.Gradient(posC);
 
+    gradC.Print();
+    
     Vector<3> posS{1.73, 0.785, 0.955 };            // LOL manualno izračunavanje :)
     Vector<3> gradS = fieldSpher.Gradient(posS);
 }

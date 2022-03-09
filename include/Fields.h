@@ -32,6 +32,7 @@ class ScalarField : VectorFunction<N>
         const MetricTensor<N>& m = Metric();
 
         Matrix<N,N> metricAtPoint = m.MetricAtPoint(pos);
+        ret = m.MetricAtPoint(pos) * derivsAtPoint;
 
         return ret;
     }
