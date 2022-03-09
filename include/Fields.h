@@ -16,17 +16,21 @@ class ScalarField : VectorFunction<N>
 {
     public:
     virtual double Value(Vector<N> &pos) const = 0;
-    virtual MetricTensor<N>& Metric(Vector<N> &pos) = 0;
+    virtual const MetricTensor<N>& Metric() const = 0;
 
     virtual double operator()(Vector<N> x) const
     {
         return Value(x);
     }
 
-    Vector<N> Gradient(Vector<N> &pos)
+    Vector<N> Gradient(Vector<N> &pos) const
     {
         Vector<N> ret;
-        //Vector<N> derivsAtPoint = Derivation::DerivePartialByAll();
+
+        Vector<N> derivsAtPoint = Derivation::DerivePartialByAll(*this, pos);
+
+        //Matrix<N,N> metricAtPoint = 
+        Metric().MetricAtPoint(pos);
 
         return ret;
     }

@@ -13,7 +13,7 @@ class RadialScalarPotentialCartesian : public ScalarField<3>
         return 1/r;
     }
 
-    MetricTensor<3>& Metric(Vector<3> &pos)
+    const MetricTensor<3>& Metric() const
     {
         return _mt;
     }
@@ -33,7 +33,7 @@ class RadialScalarPotentialSpherical : public ScalarField<3>
         return 1 / pos[0];
     }
 
-    MetricTensor<3>& Metric(Vector<3> &pos)
+    const MetricTensor<3>& Metric() const
     {
         return _mt;
     }

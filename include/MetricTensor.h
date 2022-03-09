@@ -10,8 +10,8 @@ template<int N>
 class MetricTensor
 {
     public:
-    virtual double Component(int i, int j, Vector<N> &pos) = 0;
-    virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos) = 0;
+    virtual double Component(int i, int j, Vector<N> &pos) const = 0;
+    virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos) const = 0;
 };
 
 
@@ -19,7 +19,7 @@ template<int N>
 class MetricTensorCartesian: public MetricTensor<N>
 {
     public:
-    virtual double Component(int i, int j, Vector<N> &pos)
+    virtual double Component(int i, int j, Vector<N> &pos) const
     {
         if( i == j )
             return 1.0;
@@ -27,7 +27,7 @@ class MetricTensorCartesian: public MetricTensor<N>
             return 0.0;
     }
 
-    virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos)
+    virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos) const
     {
         Matrix<N, N> ret;
 
@@ -48,7 +48,7 @@ class MetricTensorFromCoordTransf: public MetricTensor<N>
     MetricTensorFromCoordTransf(CoordSystemTransf<N> &inTransf) : _coordTransf(inTransf)
     { }
 
-    virtual double Component(int i, int j, Vector<N> &pos)
+    virtual double Component(int i, int j, Vector<N> &pos) const
     {
         double g_ij = 0.0;
         for(int l=0; l<3; l++)
@@ -58,7 +58,7 @@ class MetricTensorFromCoordTransf: public MetricTensor<N>
         return g_ij;
     }
 
-    virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos)
+    virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos) const 
     {
         Matrix<N, N> ret;
 
