@@ -12,16 +12,21 @@
 #include "MetricTensor.h"
 
 template<int N>
-class ScalarField
+class ScalarField : VectorFunction<N>
 {
     public:
-    virtual double Value(Vector<N> &pos) = 0;
+    virtual double Value(Vector<N> &pos) const = 0;
     virtual MetricTensor<N>& Metric(Vector<N> &pos) = 0;
+
+    virtual double operator()(Vector<N> x) const
+    {
+        return Value(x);
+    }
 
     Vector<N> Gradient(Vector<N> &pos)
     {
         Vector<N> ret;
-        Vector<N> derivsAtPoint = Derivation::DerivePartialByAll();
+        //Vector<N> derivsAtPoint = Derivation::DerivePartialByAll();
 
         return ret;
     }

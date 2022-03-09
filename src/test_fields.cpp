@@ -7,7 +7,7 @@ class RadialScalarPotentialCartesian : public ScalarField<3>
     MetricTensorCartesian<3>     _mt;
 
     public:
-    double Value(Vector<3> &pos)
+    double Value(Vector<3> &pos) const
     {
         double r = sqrt(pos[0]*pos[0] + pos[1]*pos[1] + pos[2]*pos[2]);
         return 1/r;
@@ -28,7 +28,7 @@ class RadialScalarPotentialSpherical : public ScalarField<3>
     RadialScalarPotentialSpherical() : _mt( MetricTensorFromCoordTransf<3> (_transf) )
     {}
 
-    double Value(Vector<3> &pos)
+    double Value(Vector<3> &pos) const
     {
         return 1 / pos[0];
     }
