@@ -9,7 +9,7 @@
 
 class Derivation
 {
-    public:
+public:
     static double Derive(const ScalarFunction &f, double x)
     {
         // auto f = [](double x) { return std::exp(x); };
@@ -50,6 +50,22 @@ class Derivation
         double dfdx = boost::math::differentiation::finite_difference_derivative(helper, x);
 
         return dfdx;
+    }
+
+    template <int N>
+    static Vector<N> DerivePartialByAll(const VectorFunction<N> &f, Vector<N> &point)
+    {
+        Vector<N> ret;
+
+        for (int i = 0; i < N; i++)
+        {
+            double x = point[i];
+            HelperFunc<N> helper{f, point, i};
+
+            ret[i] = boost::math::differentiation::finite_difference_derivative(helper, x);
+        }
+
+        return ret;
     }
 };
 
