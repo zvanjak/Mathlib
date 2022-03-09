@@ -36,9 +36,16 @@ template<int N>
 class VectorFunction
 {
     public:
+    virtual double operator()(Vector<N> x) const = 0;
+};
+
+template<int N>
+class VectorFunctionFromStdFunction
+{
+    public:
     std::function<double(Vector<N>)> _func;
 
-    VectorFunction(std::function<double(Vector<N>)> inFunc) : _func(inFunc)
+    VectorFunctionFromStdFunction(std::function<double(Vector<N>)> inFunc) : _func(inFunc)
     {}
 
     double operator()(Vector<N> x) const

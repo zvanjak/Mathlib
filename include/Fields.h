@@ -21,6 +21,7 @@ class ScalarField
     Vector<N> Gradient(Vector<N> &pos)
     {
         Vector<N> ret;
+        Vector<N> derivsAtPoint = Derivation::DerivePartialByAll();
 
         return ret;
     }

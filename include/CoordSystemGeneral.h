@@ -34,9 +34,9 @@ class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
     static double func3(Vector<3> q) { return q[0] * cos(q[1]); }
 
     inline static VectorFunction<3> _func[3] = { 
-                                                VectorFunction<3>{std::function<double(Vector<3>)>{func1}},
-                                                VectorFunction<3>{std::function<double(Vector<3>)>{func2}},
-                                                VectorFunction<3>{std::function<double(Vector<3>)>{func3}}
+                                                VectorFunctionFromStdFunction<3>{std::function<double(Vector<3>)>{func1}},
+                                                VectorFunctionFromStdFunction<3>{std::function<double(Vector<3>)>{func2}},
+                                                VectorFunctionFromStdFunction<3>{std::function<double(Vector<3>)>{func3}}
                                                };
     Vector<3> transf(Vector<3> q)
     {
