@@ -22,11 +22,13 @@ class RadialScalarPotentialCartesian : public ScalarField<3>
 class RadialScalarPotentialSpherical : public ScalarField<3>
 {
     CoordTransfSphericalToCartesian     _transf;
-    MetricTensorFromCoordTransf<3>     &_mt;
+    MetricTensorFromCoordTransf<3>     *_mt;
 
     public:
-    RadialScalarPotentialSpherical() : _mt( MetricTensorFromCoordTransf<3> (_transf) )
-    {}
+    RadialScalarPotentialSpherical()
+    {
+        _mt = new MetricTensorFromCoordTransf<3> (_transf);
+    }
 
     double Value(Vector<3> &pos) const
     {
@@ -35,7 +37,7 @@ class RadialScalarPotentialSpherical : public ScalarField<3>
 
     const MetricTensor<3>& Metric() const
     {
-        return _mt;
+        return *_mt;
     }
 
 };
