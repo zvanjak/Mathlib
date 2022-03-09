@@ -22,7 +22,7 @@ class ScalarField
     {
         Vector<N> ret;
 
-        retrun ret;
+        return ret;
     }
 };
 
