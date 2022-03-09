@@ -44,4 +44,9 @@ void Test_Fields()
 {
     RadialScalarPotentialCartesian      fieldCart;
     RadialScalarPotentialSpherical      fieldSpher;
+
+    Vector<3> posC{1.0, 1.0, 1.0 };
+    Vector<3> gradC = fieldCart.Gradient(posC);
+
+    Vector<3> posS = CoordTransfCartesianToSpherical::
 }
