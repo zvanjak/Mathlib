@@ -17,8 +17,6 @@ class ScalarField
     public:
     virtual double Value(Vector<N> &pos) = 0;
     virtual MetricTensor<N>& Metric(Vector<N> &pos) = 0;
-
-// i onda primjer s dva fielda - Cart i Spher - za radijalno 1/r polje gradijent
 };
 
 template<int N>
@@ -31,8 +29,6 @@ class ScalarFieldWithFunction: public ScalarField<N>
 
     ScalarFieldWithFunction(VectorFunction<N> &inFunc) : _func(inFunc)
     {}
-
-// treba dodati metrički tenzor da bude generičko?
 };
 
 template<int N>

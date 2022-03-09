@@ -4,13 +4,9 @@
 
 class RadialScalarPotentialCartesian : public ScalarField<3>
 {
-    CoordTransfSphericalToCartesian     _transf;
-    MetricTensorFromCoordTransf<3>     &_mt;
+    MetricTensorCartesian<3>     _mt;
 
     public:
-    RadialScalarPotentialCartesian() : _mt{ MetricTensorFromCoordTransf<3> (_transf) }
-    {}
-
     double Value(Vector<3> &pos)
     {
         double r = sqrt(pos[0]*pos[0] + pos[1]*pos[1] + pos[2]*pos[2]);
@@ -46,8 +42,6 @@ class RadialScalarPotentialSpherical : public ScalarField<3>
 
 void Test_Fields()
 {
-    CoordTransfSphericalToCartesian     transf;
-    MetricTensorFromCoordTransf<3> metric(transf);
-
-    RadialScalarPotentialSpherical field;
+    RadialScalarPotentialCartesian      fieldCart;
+    RadialScalarPotentialSpherical      fieldSpher;
 }
