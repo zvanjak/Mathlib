@@ -40,7 +40,7 @@ class VectorFunction
 };
 
 template<int N>
-class VectorFunctionFromStdFunction
+class VectorFunctionFromStdFunction : public VectorFunction<N>
 {
     public:
     std::function<double(Vector<N>)> _func;

@@ -29,7 +29,7 @@ double TestScalarField(Vector<3> x)
 TEST_CASE("Test_Partial_Derivative", "[simple]") {
     std::function<double(Vector<3>)> func = TestScalarField;
 
-    VectorFunction<3> f{func};
+    VectorFunctionFromStdFunction<3> f{func};
 
     Vector<3> point{1.0, 1.0, 1.0 };
     double c = func(point);
