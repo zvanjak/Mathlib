@@ -14,6 +14,31 @@ class MetricTensor
     virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos) = 0;
 };
 
+
+template<int N>
+class MetricTensorCartesian: public MetricTensor<N>
+{
+    public:
+    virtual double Component(int i, int j, Vector<N> &pos)
+    {
+        if( i == j )
+            return 1.0;
+        else
+            return 0.0;
+    }
+
+    virtual Matrix<N, N> MetricAtPoint(Vector<N> &pos)
+    {
+        Matrix<N, N> ret;
+
+        for( int i=0; i<3; i++ )
+            for( int j=0; j<N; j++ )
+                ret(i,j) = Component(i,j, pos);
+
+        return ret;
+    }
+};
+
 template<int N>
 class MetricTensorFromCoordTransf: public MetricTensor<N>
 {
