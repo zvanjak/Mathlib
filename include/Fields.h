@@ -17,6 +17,13 @@ class ScalarField
     public:
     virtual double Value(Vector<N> &pos) = 0;
     virtual MetricTensor<N>& Metric(Vector<N> &pos) = 0;
+
+    Vector<N> Gradient(Vector<N> &pos)
+    {
+        Vector<N> ret;
+
+        retrun ret;
+    }
 };
 
 template<int N>
