@@ -27,9 +27,12 @@ public:
         int _der_ind;
 
     public:
+        HelperFunc(const VectorFunction<N> &inFunc, Vector<N> &x) : _func(inFunc), _x(x)
+        { }
         HelperFunc(const VectorFunction<N> &inFunc, Vector<N> &x, int der_ind) : _func(inFunc), _x(x), _der_ind(der_ind)
-        {
-        }
+        { }
+
+        void setDerInd(int ind) { _der_ind = ind; }
 
         double operator()(double x) const
         {
@@ -57,10 +60,11 @@ public:
     {
         Vector<N> ret;
 
+        HelperFunc<N> helper{f, point};
         for (int i = 0; i < N; i++)
         {
             double x = point[i];
-            HelperFunc<N> helper{f, point, i};
+            helper.setDerInd(i);
 
             ret[i] = boost::math::differentiation::finite_difference_derivative(helper, x);
         }
