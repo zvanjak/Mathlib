@@ -29,8 +29,9 @@ class ScalarField : VectorFunction<N>
 
         Vector<N> derivsAtPoint = Derivation::DerivePartialByAll(*this, pos);
 
-        //Matrix<N,N> metricAtPoint = 
-        Metric().MetricAtPoint(pos);
+        const MetricTensor<N>& m = Metric();
+
+        Matrix<N,N> metricAtPoint = m.MetricAtPoint(pos);
 
         return ret;
     }
