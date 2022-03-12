@@ -55,6 +55,18 @@ public:
         return dfdx;
     }
 
+    // BIG TODO - derivacija vektorskog polja PO ODREĐENOM SMJERU
+    template <int N>
+    static double DeriveDirectional(const VectorFunction<N> &f, Vector<N> &deriv_direction, Vector<N> &point)
+    {
+        double x = point[deriv_index];
+        HelperFunc<N> helper{f, point, deriv_index};
+
+        double dfdx = boost::math::differentiation::finite_difference_derivative(helper, x);
+
+        return dfdx;
+    }
+
     template <int N>
     static Vector<N> DerivePartialByAll(const VectorFunction<N> &f, Vector<N> &point)
     {
