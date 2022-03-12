@@ -2,6 +2,7 @@
 #define __MML_VECTOR_STATIC_H
 
 #include <initializer_list>
+#include <iostream>
 
 template<int N> 
 class Vector
@@ -43,6 +44,23 @@ class Vector
         return ret;
     }
 
+    friend std::ostream& operator<<(std::ostream& stream, const Vector<N> &a)
+    {
+        stream << "[";
+        bool first = true;
+        for(const double& x : a._val)
+        {
+            if( !first )
+                stream << ", ";
+            else
+                first = false;
+
+            stream << std::setw(8) << x;
+        }
+        stream << "]";
+
+        return stream;
+    }
 };
 
 // SPECIJALIZACIJE ZA 2, 3 I 4

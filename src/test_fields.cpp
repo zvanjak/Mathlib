@@ -25,33 +25,39 @@ class RadialScalarPotentialSpherical : public ScalarField<3>
     MetricTensorFromCoordTransf<3>     *_mt;
 
     public:
-    RadialScalarPotentialSpherical()
-    {
-        _mt = new MetricTensorFromCoordTransf<3> (_transf);
-    }
+    RadialScalarPotentialSpherical() { _mt = new MetricTensorFromCoordTransf<3> (_transf); }
+    const MetricTensor<3>& Metric() const { return *_mt; }
 
-    double Value(Vector<3> &pos) const
-    {
-        return 1 / pos[0];
-    }
+    double Value(Vector<3> &pos) const  { return 1 / pos[0]; }
+};
 
-    const MetricTensor<3>& Metric() const
-    {
-        return *_mt;
-    }
+class RadialScalarPotentialSpherical_R_squared : public ScalarField<3>
+{
+    CoordTransfSphericalToCartesian     _transf;
+    MetricTensorFromCoordTransf<3>     *_mt;
 
+    public:
+    RadialScalarPotentialSpherical_R_squared() { _mt = new MetricTensorFromCoordTransf<3> (_transf); }
+    const MetricTensor<3>& Metric() const { return *_mt; }
+
+    double Value(Vector<3> &pos) const  { return pos[0] * pos[2]; }
 };
 
 void Test_Fields()
 {
+    std::cout << "TESTING FIELDS:\n";
+
     RadialScalarPotentialCartesian      fieldCart;
-    RadialScalarPotentialSpherical      fieldSpher;
+    RadialScalarPotentialSpherical_R_squared      fieldSpher;
 
     Vector<3> posC{1.0, 1.0, 1.0 };
     Vector<3> gradC = fieldCart.Gradient(posC);
 
-    gradC.Print();
+    std::cout << gradC << std::endl;
     
     Vector<3> posS{1.73, 0.785, 0.955 };            // LOL manualno izračunavanje :)
     Vector<3> gradS = fieldSpher.Gradient(posS);
+
+    std::cout << gradS << std::endl;
+
 }
