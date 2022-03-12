@@ -6,6 +6,13 @@
 #include <iostream>
 #include <iomanip>
 
+/*
+    Kompletno modelirati sve u 3D koordinatnom sistemu
+    - kartezijeve, sferne i cilindrične koordinate, konkreten
+    - definirani i gradijenti i operatori točni
+    - rotacije i konkretne transformacije?
+*/
+
 class Vector3D
 {
 private:
