@@ -50,6 +50,8 @@ class ScalarFieldWithFunction: public ScalarField<N>
     {}
 };
 
+// TODO - osnovni primjer ovoga će biti vektorski potencijal A, za dugački vodič kroz koji teče struja
+
 template<int N>
 class VectorField
 {
