@@ -7,6 +7,8 @@ double TestSin(double x)
     return sin(x);
 }
 
+// TODO - definirati još par vsti funkcija - member, + razno
+
 TEST_CASE("Test_Derivative", "[simple]") {
     std::function<double(double)> func = TestSin;
 

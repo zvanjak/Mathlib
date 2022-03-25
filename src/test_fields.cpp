@@ -48,7 +48,7 @@ void Test_Fields()
     std::cout << "TESTING FIELDS:\n";
 
     RadialScalarPotentialCartesian      fieldCart;
-    RadialScalarPotentialSpherical_R_squared      fieldSpher;
+    RadialScalarPotentialSpherical      fieldSpher;
 
     Vector<3> posC{1.0, 1.0, 1.0 };
     Vector<3> gradC = fieldCart.Gradient(posC);

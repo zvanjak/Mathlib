@@ -20,6 +20,7 @@ class CoordSystemTransf
 
     // ako je definirana transformacija
     //      to mora biti kvalitenta funkcija, koja se po parametrima može derivirati numerički!!!
+    // - to je NOVA KLASA transf with metric
     // zna vratiti MetricTensor u točki!
 };
 
