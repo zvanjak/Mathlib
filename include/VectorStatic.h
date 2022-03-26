@@ -3,6 +3,8 @@
 
 #include <initializer_list>
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 
 template<int N> 
 class Vector

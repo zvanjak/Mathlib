@@ -4,6 +4,7 @@
 #include <cmath>
 #include <numbers>
 #include <iostream>
+#include <sstream>
 #include <iomanip>
 
 /*
@@ -26,14 +27,18 @@ public:
     double &Y() { return _y; }
     double &Z() { return _z; }
 
+    double X() const { return _x; }
+    double Y() const { return _y; }
+    double Z() const { return _z; }
+
     Vector3D operator+(Vector3D &b)
     {
         return Vector3D{X()+b.X(), Y() + b.Y(), Z() + b.Z()};
     }
 
-    friend std::ostream &operator<<(std::ostream &stream, Vector3D &a)
+    friend std::ostream &operator<<(std::ostream &stream, const Vector3D &a)
     {
-        stream << "[" << std::setw(8) << a.X() << ", " << a.Y() << ", " << a.Z() << "]";
+        stream << "[" << std::setw(8) << a._x << ", " << a._y << ", " << a._z << "]";
 
         return stream;
     }
@@ -51,14 +56,18 @@ public:
     double &Rho() { return _rho; }
     double &Theta() { return _theta; }
 
+    double R() const { return _r; }
+    double Rho() const { return _rho; }
+    double Theta() const { return _theta; }
+
     Vector3DSpherical operator+(Vector3DSpherical &b)
     {
         return Vector3DSpherical{R()+b.R(), Rho() + b.Rho(), Theta() + b.Theta()};
     }
 
-    friend std::ostream &operator<<(std::ostream &stream, Vector3DSpherical &a)
+    friend std::ostream &operator<<(std::ostream &stream, const Vector3DSpherical &a)
     {
-        stream << "[" << std::setw(8) << a.R() << ", " << a.Rho() << ", " << a.Theta() << "]";
+        stream << "[" << std::setw(8) << a._r << ", " << a._rho << ", " << a._theta << "]";
 
         return stream;
     }
@@ -67,7 +76,7 @@ public:
 class CoordTransf
 {
 public:
-    static Vector3D SphericalToCartesian(Vector3DSpherical &vec)
+    static Vector3D SphericalToCartesian(const Vector3DSpherical &vec)
     {
         Vector3D outCart;
 
@@ -78,13 +87,14 @@ public:
         return outCart;
     }
 
-    static Vector3DSpherical CartesianToSpherical(Vector3D &cartCoords)
+    static Vector3DSpherical CartesianToSpherical(const Vector3D &cartCoords)
     {
+        double x = cartCoords.X();
         if (cartCoords.X() == 0)
-            cartCoords.X() = 1e-10;
+            x = 1e-10;
 
-        double outRadius = sqrt((cartCoords.X() * cartCoords.X()) + (cartCoords.Y() * cartCoords.Y()) + (cartCoords.Z() * cartCoords.Z()));
-        double outPolar = atan2(cartCoords.Y(), cartCoords.X());
+        double outRadius = sqrt((x * x) + (cartCoords.Y() * cartCoords.Y()) + (cartCoords.Z() * cartCoords.Z()));
+        double outPolar = atan2(cartCoords.Y(), x);
 
         if (cartCoords.X() < 0)
             outPolar += 3.1415963;
