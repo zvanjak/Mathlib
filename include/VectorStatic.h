@@ -28,7 +28,7 @@ class Vector
     }
 
     double& operator[](int n) { return _val[n]; }
-    //double  operator[](int n) const { return _val[n]; }
+    double  operator[](int n) const { return _val[n]; }
 
     Vector operator+(Vector &b )
     {
