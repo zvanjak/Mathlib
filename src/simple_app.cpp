@@ -12,6 +12,7 @@ void Test_Coord_Systems();
 void Test_Metric_Tensor();
 void Test_Function();
 void Test_Fields();
+void Test_Gravity_Field();
 
 int main(int, char**) 
 {
@@ -28,6 +29,8 @@ int main(int, char**)
     //Test_Function();
 
     Test_Fields();
+
+    Test_Gravity_Field();
 
 /* TODO
     1. Vector osnovne operacije

@@ -3,6 +3,8 @@ CoordSystem3D.h
 
 Istažiti kako izgledaju generalni izrazi, s metričkim tenzorom
 
+BIG TODO - derivacija vektorskog polja PO ODREĐENOM SMJERU
+
 Poigrati se s gravitacijskim i EM poljem
 - definirati gravitacijski potencijal i vektorsko polje grav sile u svakoj točki
 - i onda se poigrati s radom
