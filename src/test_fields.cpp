@@ -55,7 +55,11 @@ void Test_Fields()
 
     std::cout << gradC << std::endl;
     
-    Vector<3> posS{1.73, 0.785, 0.955 };            // LOL manualno izračunavanje :)
+    CoordTransfCartesianToSpherical cartToSpher;
+
+    auto posS = cartToSpher.transf(posC);
+    std::cout << posS << std::endl;
+
     Vector<3> gradS = fieldSpher.Gradient(posS);
 
     std::cout << gradS << std::endl;
