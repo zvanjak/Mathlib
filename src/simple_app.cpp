@@ -59,13 +59,5 @@ int main(int, char**)
 
     - usporedba integracije diff jedn s poznatim rezultatom, 
 */
-    // std::cout << "Matrix = (" << m3[0][0] << ", " << m3[0][1] << ")" << std::endl;
-
-    // Vector eigenValues(2);
-    // Vector *eigenVectors;
-
-    // CalcEigenvectors(m1, eigenValues, &eigenVectors);
-
-    // std::cout << "Eigenvalues = (" << eigenValues[0] << ", " << eigenValues[1] << ")" << std::endl;
 
 }
