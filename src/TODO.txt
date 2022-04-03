@@ -1,6 +1,10 @@
 CoordSystem3D.h
 - implementirati konkretne grad, div, Lapl i curl za Cart i Spherical sistem
 
+dodati MetricTensor za sferne i cilinrične koordinate - nek ih imam :)
+
+- uuu, dobar primjer - dva cilindirčna 3D, za dva planete + sunce u 3D sfernom? ili kartezijevom? :)))
+
 Istažiti kako izgledaju generalni izrazi, s metričkim tenzorom
 
 BIG TODO - derivacija vektorskog polja PO ODREĐENOM SMJERU
@@ -13,6 +17,12 @@ Poigrati se s gravitacijskim i EM poljem
         - surfcae integral mora imati mapiranje (i,j) i to ga jedino zanima, 
     - isprobati surface po sferi cart koordinatiziranoj, ali bez malog dijela oko polova, kako Gauss i Stokes dišu
 
+SIMULACIJA KRETANJA U POTENCIJALU
+- rješavanje ODE?
+
 Implementirati proračun Christofellovih simbola na osnovu metrike
 
 Kontrast vector fielda koji dobijem od gradijenta, i standardnog EM vektor fielda- KLJUČ JE KAKO SE TRANSFORMIRAJU!!!
+
+Za polja - IsConservative() - numerička evaluacija
+- implementirati TabulatedScalarField
