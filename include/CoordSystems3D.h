@@ -47,27 +47,27 @@ public:
 class Vector3DSpherical
 {
 private:
-    double _r, _rho, _theta;
+    double _r, _theta, _phi;
 
 public:
-    Vector3DSpherical(double r, double rho, double theta) : _r{r}, _rho{rho}, _theta{theta} {}
+    Vector3DSpherical(double r, double theta, double phi) : _r{r}, _theta{theta}, _phi{phi} {}
 
     double &R() { return _r; }
-    double &Rho() { return _rho; }
     double &Theta() { return _theta; }
+    double &Phi() { return _phi; }
 
     double R() const { return _r; }
-    double Rho() const { return _rho; }
     double Theta() const { return _theta; }
+    double Phi() const { return _phi; }
 
     Vector3DSpherical operator+(Vector3DSpherical &b)
     {
-        return Vector3DSpherical{R()+b.R(), Rho() + b.Rho(), Theta() + b.Theta()};
+        return Vector3DSpherical{R()+b.R(), Theta() + b.Theta(), Phi() + b.Phi()};
     }
 
     friend std::ostream &operator<<(std::ostream &stream, const Vector3DSpherical &a)
     {
-        stream << "[" << std::setw(8) << a._r << ", " << a._rho << ", " << a._theta << "]";
+        stream << "[" << std::setw(8) << a._r << ", " << a._theta << ", " << a._phi << "]";
 
         return stream;
     }
@@ -80,8 +80,8 @@ public:
     {
         Vector3D outCart;
 
-        outCart.X() = vec.R() * sin(vec.Theta()) * cos(vec.Rho());
-        outCart.Y() = vec.R() * sin(vec.Theta()) * sin(vec.Rho());
+        outCart.X() = vec.R() * sin(vec.Theta()) * cos(vec.Phi());
+        outCart.Y() = vec.R() * sin(vec.Theta()) * sin(vec.Phi());
         outCart.Z() = vec.R() * cos(vec.Theta());
 
         return outCart;
@@ -89,19 +89,11 @@ public:
 
     static Vector3DSpherical CartesianToSpherical(const Vector3D &cartCoords)
     {
-        double x = cartCoords.X();
-        if (cartCoords.X() == 0)
-            x = 1e-10;
+        double outRadius = sqrt(cartCoords.X() * cartCoords.X() + cartCoords.Y() * cartCoords.Y() + cartCoords.Z() * cartCoords.Z());
+        double outTheta = acos(cartCoords.Z() / outRadius);
+        double outPhi = atan2(cartCoords.Y(), cartCoords.X());
 
-        double outRadius = sqrt((x * x) + (cartCoords.Y() * cartCoords.Y()) + (cartCoords.Z() * cartCoords.Z()));
-        double outPolar = atan2(cartCoords.Y(), x);
-
-        if (cartCoords.X() < 0)
-            outPolar += 3.1415963;
-
-        double outElevation = acos(cartCoords.Z() / outRadius);
-
-        return Vector3DSpherical{outRadius, outPolar, outElevation};
+        return Vector3DSpherical{outRadius, outTheta, outPhi};
     }
 };
 
@@ -163,16 +155,16 @@ public:
     {
         double eps = 1e-6;
 
-        Vector3DSpherical pos_r_h1{pos.R() - eps, pos.Rho(), pos.Theta()};
-        Vector3DSpherical pos_r_h2{pos.R() + eps, pos.Rho(), pos.Theta()};
+        Vector3DSpherical pos_r_h1{pos.R() - eps, pos.Phi(), pos.Theta()};
+        Vector3DSpherical pos_r_h2{pos.R() + eps, pos.Phi(), pos.Theta()};
         double val_r = (Value(pos_r_h2) - Value(pos_r_h1)) / (2 * eps);
 
-        Vector3DSpherical pos_rho_h1{pos.R(), pos.Rho() - eps, pos.Theta()};
-        Vector3DSpherical pos_rho_h2{pos.R(), pos.Rho() + eps, pos.Theta()};
+        Vector3DSpherical pos_rho_h1{pos.R(), pos.Phi() - eps, pos.Theta()};
+        Vector3DSpherical pos_rho_h2{pos.R(), pos.Phi() + eps, pos.Theta()};
         double val_rho = (Value(pos_rho_h2) - Value(pos_rho_h1)) / (2 * eps);
 
-        Vector3DSpherical pos_theta_h1{pos.R(), pos.Rho(), pos.Theta() - eps};
-        Vector3DSpherical pos_theta_h2{pos.R(), pos.Rho(), pos.Theta() + eps};
+        Vector3DSpherical pos_theta_h1{pos.R(), pos.Phi(), pos.Theta() - eps};
+        Vector3DSpherical pos_theta_h2{pos.R(), pos.Phi(), pos.Theta() + eps};
         double val_theta = (Value(pos_theta_h2) - Value(pos_theta_h1)) / (2 * eps);
 
         return Vector3DSpherical{val_r, val_rho, val_theta};
