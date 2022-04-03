@@ -143,7 +143,29 @@ namespace MML
             {
                 for (int i = 0; i < _rows; i++)
                     for (int j = 0; j < _cols; j++)
-                        temp._ptrData[i][j] += other._ptrData[i][j] + _ptrData[i][j];
+                        temp._ptrData[i][j] = other._ptrData[i][j] + _ptrData[i][j];
+            }
+            //std::cout << "Matrix::operator + END \n";
+            return temp;
+        }
+
+        Matrix operator-(const Matrix &other)
+        {
+            //std::cout << "Matrix::operator + START \n";
+
+            Matrix temp(_rows, _cols);
+            if (_rows != other._rows || _cols != other._cols)
+            {
+                for (int i = 0; i < _rows; i++)
+                    for (int j = 0; j < _cols; j++)
+                        temp._ptrData[i][j] = _ptrData[i][j];
+                return temp;
+            }
+            else
+            {
+                for (int i = 0; i < _rows; i++)
+                    for (int j = 0; j < _cols; j++)
+                        temp._ptrData[i][j] =  _ptrData[i][j] - other._ptrData[i][j];
             }
             //std::cout << "Matrix::operator + END \n";
             return temp;
