@@ -79,4 +79,3 @@ HMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 //    - koncentrični oko osi (dugi vodič)
 // TODO  - vector field primjer - laminarni flow u cilindričnoj cijevi!
 
-// kontrast vector fielda koji dobijem od gradijenta, i ovih gore!!!
