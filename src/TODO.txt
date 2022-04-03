@@ -1,3 +1,16 @@
 CoordSystem3D.h
 - implementirati konkretne grad, div, Lapl i curl za Cart i Spherical sistem
 
+Istažiti kako izgledaju generalni izrazi, s metričkim tenzorom
+
+Poigrati se s gravitacijskim i EM poljem
+- definirati gravitacijski potencijal i vektorsko polje grav sile u svakoj točki
+- i onda se poigrati s radom
+    - znači, linijski integrali, po krivuljama
+    - provjeriti Gaussa i Stokesa po surface
+        - surfcae integral mora imati mapiranje (i,j) i to ga jedino zanima, 
+    - isprobati surface po sferi cart koordinatiziranoj, ali bez malog dijela oko polova, kako Gauss i Stokes dišu
+
+Implementirati proračun Christofellovih simbola na osnovu metrike
+
+Kontrast vector fielda koji dobijem od gradijenta, i standardnog EM vektor fielda- KLJUČ JE KAKO SE TRANSFORMIRAJU!!!
