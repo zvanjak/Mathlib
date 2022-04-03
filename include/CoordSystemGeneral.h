@@ -22,7 +22,7 @@ class CoordSystemTransf
 class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
 {
     // q[0] = r     - radial distance
-    // q[1] = theta - polar angle
+    // q[1] = theta - inclination
     // q[2] = phi   - azimuthal angle
     public:
     static double func1(Vector<3> q) { return q[0] * sin(q[1]) * cos(q[2]); }
@@ -41,7 +41,22 @@ class CoordTransfSphericalToCartesian : public CoordSystemTransf<3>
 
 class CoordTransfCartesianToSpherical : public CoordSystemTransf<3>
 {
+    // q[0] = x
+    // q[1] = y
+    // q[2] = z
+    public:
+    static double func1(Vector<3> q) { return sqrt(q[0]*q[0] + q[1]*q[1] + q[2]*q[2]); }
+    static double func2(Vector<3> q) { return atan2(sqrt(q[0]*q[0] + q[1]*q[1]), q[2]); }
+    static double func3(Vector<3> q) { return atan2(q[1], q[0]); }
 
+    inline static VectorFunctionFromStdFunction<3> _func[3] = { 
+                                                VectorFunctionFromStdFunction<3>{std::function<double(Vector<3>)>{func1}},
+                                                VectorFunctionFromStdFunction<3>{std::function<double(Vector<3>)>{func2}},
+                                                VectorFunctionFromStdFunction<3>{std::function<double(Vector<3>)>{func3}}
+                                            };
+
+    Vector<3>           transf(Vector<3> q)     { return Vector<3>{ func1(q), func2(q), func3(q) }; }
+    VectorFunction<3>&  coordTransfFunc(int i)  { return _func[i]; }
 };
 
 class CoordTransfCylindricalToCartesian : public CoordSystemTransf<3>
