@@ -2,6 +2,7 @@ CoordSystem3D.h
 - implementirati konkretne grad, div, Lapl i curl za Cart i Spherical sistem
 
 dodati MetricTensor za sferne i cilinrične koordinate - nek ih imam :)
+- definirati jednadžbe za unit vektore
 
 - uuu, dobar primjer - dva cilindirčna 3D, za dva planete + sunce u 3D sfernom? ili kartezijevom? :)))
 
