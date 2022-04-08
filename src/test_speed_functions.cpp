@@ -1,6 +1,8 @@
 #include <cmath>
 #include <chrono>
 #include <iostream>
+#include <string>
+#include <vector>
 
 /*
 FUNKCIJA
@@ -14,8 +16,20 @@ FUNKCIJA
 */
 inline double eval_hermite_1(double x ) { return std::hermite(1, x); }
 
+struct FuncToEval
+{
+    double (*_func)(double);
+    std::string _name;
+};
+
 static const int num_func = 4;
 double (*func[])(double) = {sin, cos, tan, eval_hermite_1};
+std::string func_name[] = { "sin", "cos", "tan", "Hermite 1"};
+
+std::vector<FuncToEval> vec_func = {
+    { sin, "sin" },
+    { cos, "cos" }
+};
 
 void Test_Speed_Functions()
 {
@@ -31,22 +45,20 @@ void Test_Speed_Functions()
         auto t1 = high_resolution_clock::now();
         double x = 0.0;
         double y = 0.0;
-        for (int i = 0; i < 10000000; i++)
+        for (int i = 0; i < 1000000; i++)
         {
             x = rand() % 1000 * 3.14159 / 500.0;
             y = func[f](x);
-            //y = std::hermite(1, x);
         }
 
         auto t2 = high_resolution_clock::now();
 
         /* Getting number of milliseconds as an integer. */
-        auto ms_int = duration_cast<milliseconds>(t2 - t1);
+        //auto ms_int = duration_cast<milliseconds>(t2 - t1);
+        //std::cout << ms_int.count() << "ms\n";
 
         /* Getting number of milliseconds as a double. */
         duration<double, std::milli> ms_double = t2 - t1;
-
-        std::cout << ms_int.count() << "ms\n";
-        std::cout << ms_double.count() << "ms\n";
+        std::cout << func_name[f] << " - " << ms_double.count() << "ms\n";
     }
 }
