@@ -40,7 +40,7 @@ void Test_Speed_Functions()
     using std::chrono::duration;
     using std::chrono::milliseconds;
 
-    for (int f = 0; f < num_func; f++)
+    for(auto f : vec_func)
     {
         auto t1 = high_resolution_clock::now();
         double x = 0.0;
@@ -48,17 +48,14 @@ void Test_Speed_Functions()
         for (int i = 0; i < 1000000; i++)
         {
             x = rand() % 1000 * 3.14159 / 500.0;
-            y = func[f](x);
+            y = f._func(x);
         }
 
         auto t2 = high_resolution_clock::now();
 
-        /* Getting number of milliseconds as an integer. */
-        //auto ms_int = duration_cast<milliseconds>(t2 - t1);
-        //std::cout << ms_int.count() << "ms\n";
-
         /* Getting number of milliseconds as a double. */
         duration<double, std::milli> ms_double = t2 - t1;
-        std::cout << func_name[f] << " - " << ms_double.count() << "ms\n";
+        std::cout << f._name << " - " << ms_double.count() << " ms\n";
+
     }
 }
