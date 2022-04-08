@@ -12,7 +12,10 @@ FUNKCIJA
 - Special func - assoc_laguerre, assoc_legendre, beta, comp_ellint_1(2,3), cyl_bessel_I(j,k)
                 - hermite, legendre, lagurre, riemann_zeta, sph_bessel, sph_legendre
 */
-double (*func[])(double) = {sin, cos, tan};
+inline double eval_hermite_1(double x ) { return std::hermite(1, x); }
+
+static const int num_func = 4;
+double (*func[])(double) = {sin, cos, tan, eval_hermite_1};
 
 void Test_Speed_Functions()
 {
@@ -23,7 +26,7 @@ void Test_Speed_Functions()
     using std::chrono::duration;
     using std::chrono::milliseconds;
 
-    for (int f = 0; f < 2; f++)
+    for (int f = 0; f < num_func; f++)
     {
         auto t1 = high_resolution_clock::now();
         double x = 0.0;
