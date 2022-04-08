@@ -24,10 +24,6 @@ struct FuncToEval
     double _up;
 };
 
-// static const int num_func = 4;
-// double (*func[])(double) = {sin, cos, tan, eval_hermite_1};
-// std::string func_name[] = { "sin", "cos", "tan", "Hermite 1"};
-
 std::vector<FuncToEval> vec_func = {
     { exp, "exp", -10, 10 },
     { log, "log", 0.0, 1e6 },
@@ -35,6 +31,11 @@ std::vector<FuncToEval> vec_func = {
     { sin, "sin", -3.14159, 3.14159 },
     { cos, "cos", -3.14159, 3.14159 },
     { tan, "tan", -3.14159, 3.14159 },
+    { asin, "asin", -1, 1 },
+    { acos, "acos", -1, 1 },
+    { atan, "atan", -1e3, 1e3 },
+    { std::erf, "ef", -3.14159, 3.14159 },
+    { std::tgamma, "tgamma", -3.14159, 3.14159 },
     { eval_hermite_1, "Hermite 1", -3.14159, 3.14159 }
 };
 
