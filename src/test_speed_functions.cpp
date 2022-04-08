@@ -23,7 +23,10 @@ inline double eval_hermite_10(double x ) { return std::hermite(10, x); }
 inline double eval_hermite_20(double x ) { return std::hermite(20, x); }
 inline double eval_hermite_30(double x ) { return std::hermite(30, x); }
 
+inline double eval_sph_bessel_3(double x ) { return std::sph_bessel(3, x); }
+
 // esencijalno DVOPARAMETARSKE FUNKCIJE???
+// pow, beta, ellint
 
 struct FuncToEval
 {
@@ -50,7 +53,8 @@ std::vector<FuncToEval> vec_func = {
     { eval_hermite_5, "Hermite 5", -1e3, 1e3 },
     { eval_hermite_10, "Hermite 10", -1e3, 1e3 },
     { eval_hermite_20, "Hermite 20", -1e3, 1e3 },
-    { eval_hermite_30, "Hermite 30", -1e3, 1e3 }
+    { eval_hermite_30, "Hermite 30", -1e3, 1e3 },
+    { eval_sph_bessel_3, "Sph Bessel 3", -1e3, 1e3 }
 };
 
 static const int num_evals = 1000000;
