@@ -1,4 +1,6 @@
 #include <cmath>
+#include <chrono>
+#include <iostream>
 
 /*
 FUNKCIJA
@@ -10,12 +12,20 @@ FUNKCIJA
 - Special func - assoc_laguerre, assoc_legendre, beta, comp_ellint_1(2,3), cyl_bessel_I(j,k)
                 - hermite, legendre, lagurre, riemann_zeta, sph_bessel, sph_legendre
 */
-double (*func[])(double) = {sin, cos};
+double (*func[])(double) = {sin, cos, tan};
 
 void Test_Speed_Functions()
 {
+    std::cout << "TESTING SPEED OF FUNCTIONS\n";
+
+    using std::chrono::high_resolution_clock;
+    using std::chrono::duration_cast;
+    using std::chrono::duration;
+    using std::chrono::milliseconds;
+
     for (int f = 0; f < 2; f++)
     {
+        auto t1 = high_resolution_clock::now();
         double x = 0.0;
         double y = 0.0;
         for (int i = 0; i < 10000000; i++)
@@ -24,5 +34,16 @@ void Test_Speed_Functions()
             y = func[f](x);
             //y = std::hermite(1, x);
         }
+
+        auto t2 = high_resolution_clock::now();
+
+        /* Getting number of milliseconds as an integer. */
+        auto ms_int = duration_cast<milliseconds>(t2 - t1);
+
+        /* Getting number of milliseconds as a double. */
+        duration<double, std::milli> ms_double = t2 - t1;
+
+        std::cout << ms_int.count() << "ms\n";
+        std::cout << ms_double.count() << "ms\n";
     }
 }
