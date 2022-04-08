@@ -20,6 +20,8 @@ struct FuncToEval
 {
     double (*_func)(double);
     std::string _name;
+    double _low;
+    double _up;
 };
 
 // static const int num_func = 4;
@@ -27,11 +29,16 @@ struct FuncToEval
 // std::string func_name[] = { "sin", "cos", "tan", "Hermite 1"};
 
 std::vector<FuncToEval> vec_func = {
-    { sin, "sin" },
-    { cos, "cos" },
-    { tan, "tan" },
-    { eval_hermite_1, "Hermite 1" }
+    { exp, "exp", -10, 10 },
+    { log, "log", 0.0, 1e6 },
+    { log10, "log10", 0.0, 1e6 },
+    { sin, "sin", -3.14159, 3.14159 },
+    { cos, "cos", -3.14159, 3.14159 },
+    { tan, "tan", -3.14159, 3.14159 },
+    { eval_hermite_1, "Hermite 1", -3.14159, 3.14159 }
 };
+
+static const int num_evals = 1000000;
 
 void Test_Speed_Functions()
 {
@@ -41,15 +48,15 @@ void Test_Speed_Functions()
     using std::chrono::duration_cast;
     using std::chrono::duration;
     using std::chrono::milliseconds;
+    double x = 0.0;
+    double y = 0.0;
 
     for(auto f : vec_func)
     {
         auto t1 = high_resolution_clock::now();
-        double x = 0.0;
-        double y = 0.0;
-        for (int i = 0; i < 1000000; i++)
+        for (int i = 0; i < num_evals; i++)
         {
-            x = rand() % 1000 * 3.14159 / 500.0;
+            x = rand() % 1000 * (f._up - f._low) / 1000.0 + f._low;
             y = f._func(x);
         }
 
