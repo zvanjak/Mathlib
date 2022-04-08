@@ -14,7 +14,16 @@ FUNKCIJA
 - Special func - assoc_laguerre, assoc_legendre, beta, comp_ellint_1(2,3), cyl_bessel_I(j,k)
                 - hermite, legendre, lagurre, riemann_zeta, sph_bessel, sph_legendre
 */
+
+
 inline double eval_hermite_1(double x ) { return std::hermite(1, x); }
+inline double eval_hermite_3(double x ) { return std::hermite(3, x); }
+inline double eval_hermite_5(double x ) { return std::hermite(5, x); }
+inline double eval_hermite_10(double x ) { return std::hermite(10, x); }
+inline double eval_hermite_20(double x ) { return std::hermite(20, x); }
+inline double eval_hermite_30(double x ) { return std::hermite(30, x); }
+
+// esencijalno DVOPARAMETARSKE FUNKCIJE???
 
 struct FuncToEval
 {
@@ -36,7 +45,12 @@ std::vector<FuncToEval> vec_func = {
     { atan, "atan", -1e3, 1e3 },
     { std::erf, "ef", -3.14159, 3.14159 },
     { std::tgamma, "tgamma", -3.14159, 3.14159 },
-    { eval_hermite_1, "Hermite 1", -3.14159, 3.14159 }
+    { eval_hermite_1, "Hermite 1", -1e3, 1e3 },
+    { eval_hermite_3, "Hermite 3", -1e3, 1e3 },
+    { eval_hermite_5, "Hermite 5", -1e3, 1e3 },
+    { eval_hermite_10, "Hermite 10", -1e3, 1e3 },
+    { eval_hermite_20, "Hermite 20", -1e3, 1e3 },
+    { eval_hermite_30, "Hermite 30", -1e3, 1e3 }
 };
 
 static const int num_evals = 1000000;
