@@ -10,6 +10,8 @@ FUNKCIJA
 - Special func - assoc_laguerre, assoc_legendre, beta, comp_ellint_1(2,3), cyl_bessel_I(j,k)
                 - hermite, legendre, lagurre, riemann_zeta, sph_bessel, sph_legendre
 */
+double (*func[])(double) = { sin, cos };
+
 void Test_Speed_Functions()
 {
     double x = 0.0;
