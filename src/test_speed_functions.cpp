@@ -1,5 +1,15 @@
 #include <cmath>
 
+/*
+FUNKCIJA
+- exp, log, log10, log2, 
+- pow, sqrt, cbrt
+- sin, cos, tan, asin, acos, atan
+- sinh, cosh, tanh, asinh, acosh, atanh
+- Error and gamma func - erf, tgamma, lgamma
+- Special func - assoc_laguerre, assoc_legendre, beta, comp_ellint_1(2,3), cyl_bessel_I(j,k)
+                - hermite, legendre, lagurre, riemann_zeta, sph_bessel, sph_legendre
+*/
 void Test_Speed_Functions()
 {
     double x = 0.0;
