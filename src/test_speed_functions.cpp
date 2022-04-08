@@ -22,13 +22,15 @@ struct FuncToEval
     std::string _name;
 };
 
-static const int num_func = 4;
-double (*func[])(double) = {sin, cos, tan, eval_hermite_1};
-std::string func_name[] = { "sin", "cos", "tan", "Hermite 1"};
+// static const int num_func = 4;
+// double (*func[])(double) = {sin, cos, tan, eval_hermite_1};
+// std::string func_name[] = { "sin", "cos", "tan", "Hermite 1"};
 
 std::vector<FuncToEval> vec_func = {
     { sin, "sin" },
-    { cos, "cos" }
+    { cos, "cos" },
+    { tan, "tan" },
+    { eval_hermite_1, "Hermite 1" }
 };
 
 void Test_Speed_Functions()
