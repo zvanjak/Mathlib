@@ -1,6 +1,6 @@
 #include "Fields.h"
 #include "MetricTensor.h"
-#include "CoordSystemGeneral.h"
+#include "differential_geometry/CoordSystemGeneral.h"
 
 class GravityPotentialCartesian : public ScalarField<3>
 {
