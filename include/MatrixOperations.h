@@ -4,6 +4,7 @@
 #include "Matrix.h"
 #include "VectorN.h"
 
+#include <cmath>
 #include <vector>
 
 namespace MML
