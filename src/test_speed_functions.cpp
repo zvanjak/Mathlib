@@ -16,14 +16,14 @@ FUNKCIJA
 */
 
 
-inline double eval_hermite_1(double x ) { return std::hermite(1, x); }
-inline double eval_hermite_3(double x ) { return std::hermite(3, x); }
-inline double eval_hermite_5(double x ) { return std::hermite(5, x); }
-inline double eval_hermite_10(double x ) { return std::hermite(10, x); }
-inline double eval_hermite_20(double x ) { return std::hermite(20, x); }
-inline double eval_hermite_30(double x ) { return std::hermite(30, x); }
+// inline double eval_hermite_1(double x ) { return std::hermite(1, x); }
+// inline double eval_hermite_3(double x ) { return std::hermite(3, x); }
+// inline double eval_hermite_5(double x ) { return std::hermite(5, x); }
+// inline double eval_hermite_10(double x ) { return std::hermite(10, x); }
+// inline double eval_hermite_20(double x ) { return std::hermite(20, x); }
+// inline double eval_hermite_30(double x ) { return std::hermite(30, x); }
 
-inline double eval_sph_bessel_3(double x ) { return std::sph_bessel(3, x); }
+// inline double eval_sph_bessel_3(double x ) { return std::sph_bessel(3, x); }
 
 // esencijalno DVOPARAMETARSKE FUNKCIJE???
 // pow, beta, ellint
@@ -47,14 +47,14 @@ std::vector<FuncToEval> vec_func = {
     { acos, "acos", -1, 1 },
     { atan, "atan", -1e3, 1e3 },
     { std::erf, "ef", -3.14159, 3.14159 },
-    { std::tgamma, "tgamma", -3.14159, 3.14159 },
-    { eval_hermite_1, "Hermite 1", -1e3, 1e3 },
-    { eval_hermite_3, "Hermite 3", -1e3, 1e3 },
-    { eval_hermite_5, "Hermite 5", -1e3, 1e3 },
-    { eval_hermite_10, "Hermite 10", -1e3, 1e3 },
-    { eval_hermite_20, "Hermite 20", -1e3, 1e3 },
-    { eval_hermite_30, "Hermite 30", -1e3, 1e3 },
-    { eval_sph_bessel_3, "Sph Bessel 3", -1e3, 1e3 }
+    { std::tgamma, "tgamma", -3.14159, 3.14159 }
+    // { eval_hermite_1, "Hermite 1", -1e3, 1e3 },
+    // { eval_hermite_3, "Hermite 3", -1e3, 1e3 },
+    // { eval_hermite_5, "Hermite 5", -1e3, 1e3 },
+    // { eval_hermite_10, "Hermite 10", -1e3, 1e3 },
+    // { eval_hermite_20, "Hermite 20", -1e3, 1e3 },
+    // { eval_hermite_30, "Hermite 30", -1e3, 1e3 },
+    // { eval_sph_bessel_3, "Sph Bessel 3", -1e3, 1e3 }
 };
 
 static const int num_evals = 1000000;
