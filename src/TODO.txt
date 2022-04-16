@@ -1,14 +1,20 @@
 Debug verzija provjerava intervale i baca exceptione
 
 GENERALNA IDEJA
-- mehanika
+- mehanika i gravitacija
     - kolizije (2D i 3D slučajevi)
-        - simuliranje plina u kutiji - najprije s 10 kugli
+        - Brownian motion u 2D
+        - simuliranje plina u kutiji - najprije s 10 kugli, pa do milijun
+            - podesiti masu jedne kugle da predstavlja 10e15 pojedinačnih molekula, točno određenog momenta
+            - imati dva spremnika na različitim postavkama, i onda ukloniti stijenku koja ih dijeli
         - treba linearizirati jend. - ie. uvijek se linerano kreću i mijenjaju smjer kod sudara
+    - zemaljski g
     - pendelum - njihalo - usporediti aprox i točno
-- gravitacija
-    - potencijal i sila
-    - kosi hitac
+    - rotacija zemlje i neinercijalni (rotirajući) sustavi
+        - Foucoultovo njihalo
+    - kosi hitac + otpor zraka
+        - utjecaj Coriolisove sile
+    - gravitacijski potencijal i sila
     - launch rakete i orbitiranje oko Zemlje
     - solarni sustav
 - rigid bodies
