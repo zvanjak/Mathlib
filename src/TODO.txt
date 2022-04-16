@@ -1,3 +1,15 @@
+GENERALNA IDEJA
+- mehanika
+- gravitacija
+- rigid bodies
+- hidrodinamika - fluidi
+- aerodinamika
+- vektori, matrice, odeint, coord system
+
+- elektrodinamika
+
+TODO LISTA 
+-------------------------------
 CoordSystem3D.h
 - implementirati konkretne grad, div, Lapl i curl za Cart i Spherical sistem
 
