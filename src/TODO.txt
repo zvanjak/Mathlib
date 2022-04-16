@@ -1,10 +1,15 @@
+Debug verzija provjerava intervale i baca exceptione
+
 GENERALNA IDEJA
 - mehanika
     - kolizije (2D i 3D slučajevi)
+        - simuliranje plina u kutiji - najprije s 10 kugli
+        - treba linearizirati jend. - ie. uvijek se linerano kreću i mijenjaju smjer kod sudara
     - pendelum - njihalo - usporediti aprox i točno
 - gravitacija
     - potencijal i sila
-    - orbitiranje oko Zemlje
+    - kosi hitac
+    - launch rakete i orbitiranje oko Zemlje
     - solarni sustav
 - rigid bodies
 - hidrodinamika - fluidi
@@ -13,6 +18,7 @@ GENERALNA IDEJA
 
 - vektori, matrice, odeint, coord system
 - klasa MechanicalSystem?
+    - NewtonInertialSystem - zna riješiti Newtonove jednadžbe za dane mase i dane sile
 
 - elektrodinamika
 
