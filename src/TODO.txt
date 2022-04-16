@@ -1,6 +1,11 @@
 GENERALNA IDEJA
 - mehanika
+    - kolizije (2D i 3D slučajevi)
+    - pendelum - njihalo - usporediti aprox i točno
 - gravitacija
+    - potencijal i sila
+    - orbitiranje oko Zemlje
+    - solarni sustav
 - rigid bodies
 - hidrodinamika - fluidi
 - aerodinamika
