@@ -9,7 +9,10 @@ GENERALNA IDEJA
 - rigid bodies
 - hidrodinamika - fluidi
 - aerodinamika
+- classical field theory
+
 - vektori, matrice, odeint, coord system
+- klasa MechanicalSystem?
 
 - elektrodinamika
 
