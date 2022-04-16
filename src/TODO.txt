@@ -17,6 +17,7 @@ GENERALNA IDEJA
     - gravitacijski potencijal i sila
     - launch rakete i orbitiranje oko Zemlje
     - solarni sustav
+        - ODSIMULIRATI PUTANJU VOYAGERA KROZ 30 GODINA!!!
 - rigid bodies
 - hidrodinamika - fluidi
 - aerodinamika
@@ -59,3 +60,6 @@ Kontrast vector fielda koji dobijem od gradijenta, i standardnog EM vektor field
 
 Za polja - IsConservative() - numerička evaluacija
 - implementirati TabulatedScalarField
+
+DynamicalSystem - kao u diplomskom, zadan skupom dif jednadžbi
+    - gimme info - što se sve numerički može izračunati?
