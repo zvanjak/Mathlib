@@ -3,6 +3,7 @@ Debug verzija provjerava intervale i baca exceptione
 GENERALNA IDEJA
 - mehanika i gravitacija
     - kolizije (2D i 3D slučajevi)
+        - VECTOR
         - Brownian motion u 2D
         - simuliranje plina u kutiji - najprije s 10 kugli, pa do milijun
             - podesiti masu jedne kugle da predstavlja 10e15 pojedinačnih molekula, točno određenog momenta
@@ -10,11 +11,15 @@ GENERALNA IDEJA
         - treba linearizirati jend. - ie. uvijek se linerano kreću i mijenjaju smjer kod sudara
     - zemaljski g
     - pendelum - njihalo - usporediti aprox i točno
+        - ODEINT
     - rotacija zemlje i neinercijalni (rotirajući) sustavi
+        - COORD SYSTEMS
+        - MATRIX
         - Foucoultovo njihalo
     - kosi hitac + otpor zraka
         - utjecaj Coriolisove sile
     - gravitacijski potencijal i sila
+        - SCALR & VECTOR FIELD
     - launch rakete i orbitiranje oko Zemlje
     - solarni sustav
         - ODSIMULIRATI PUTANJU VOYAGERA KROZ 30 GODINA!!!
