@@ -1163,6 +1163,7 @@ void findjac_dae( int nN, int nM, double t, double adX[], double adY[], double a
 	double	h, temp;
 	double	*f, *xout;
 
+
 	f = new double[nM];
 	xout = new double[nN];
 
@@ -1225,7 +1226,7 @@ void	FindJacobian( int nDim, double t, Vector &vecX, Matrix &Jacobian,
 	f = new Vector(nDim);
 	vecFuncVal = new Vector(nDim);
 
-	// najprije izraèunamo funkcije u traženoj toèci
+	// najprije izraï¿½unamo funkcije u traï¿½enoj toï¿½ci
 	(*pfVecFunc)(t,vecX,*vecFuncVal);
 
 	for( j=0; j<nDim; j++ )
@@ -1235,7 +1236,7 @@ void	FindJacobian( int nDim, double t, Vector &vecX, Matrix &Jacobian,
 		if( h == 0.0 )
 			h = 1e-8;
 
-		//a zatim se pomaknemo malo dalje i izraèunamo vrijednost funkcije
+		//a zatim se pomaknemo malo dalje i izraï¿½unamo vrijednost funkcije
 		vecX[j] = temp + h;
 		h = vecX[j] - temp;
 
