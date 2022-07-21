@@ -58,6 +58,7 @@ namespace detail {
         // The compiler flag -ffast-math evaporates these operations . . .
         Real temp = x + h;
         h = temp - x;
+        double g = boost::math::nextafter(x, (numeric_limits<Real>::max)()) - x;
         // Handle the case x + h == x:
         if (h == 0)
         {
